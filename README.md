@@ -1,4 +1,4 @@
-CiscoBIB Uses Built-In-Bridge (BIB) of IP phone！！
+CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone！！
 
 Blow is the phone model, Unified CM Silent Monitoring/Recording Supported Device Matrix:
 https://developer.cisco.com/site/uc-manager-sip/documents/supported/
