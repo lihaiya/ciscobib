@@ -1,4 +1,4 @@
-BIB,CiscoBIB，Cisco call manager,cucm, call manager,cisco,collaboration，思科录音系统！思科电话系统录音！思科CUCM录音！思科BIB录音！CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone！！！！！！！
+BIB,CiscoBIB，Cisco call manager,cucm, call manager,cisco,collaboration，思科录音系统！思科电话系统录音！思科CUCM录音！思科BIB录音！CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone！！！！！！！！
 
 Blow is the phone model, Unified CM Silent Monitoring/Recording Supported Device Matrix:
 https://developer.cisco.com/site/uc-manager-sip/documents/supported/
