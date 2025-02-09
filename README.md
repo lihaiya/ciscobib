@@ -1,6 +1,5 @@
-BIB,CiscoBIB,Cisco call manager,cucm, call manager,cisco,collaboration，思科录音系统！思科电话系统录音！思科CUCM录音！思科BIB录音！CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone！！！
-Blow is the phone model, Unified CM Silent Monitoring/Recording Supported Device Matrix:
-https://developer.cisco.com/site/uc-manager-sip/documents/supported/
+BIB,CiscoBIB,Cisco call manager,cucm, call manager,cisco,collaboration,CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone！！！
+思科录音系统！思科电话系统录音！思科CUCM录音！思科BIB录音！
 
 Telephone terminal streaming recording, such as BIB recording supported by Cisco IP phone system:
 
@@ -8,6 +7,20 @@ Since most Cisco IP phones support BIB function, the so-called BIB function is t
 
 At this time, the recording software is located in the server that is interconnected with the IP phone network and the CUCM network, and can receive the traffic sent by the IP phone for recording.
 
+## 📫 How to reach us:
+Skype：https://join.skype.com/invite/rVbQH1igkQwV
+
+Skype UserID：live:.cid.fedb411de91d9b
+
+Email:leehear@gmail.com
+
+WeChat:freeipcc
+
+## Blow is the phone model supported Device Matrix
+Unified CM Silent Monitoring/Recording Supported Device Matrix:
+https://developer.cisco.com/site/uc-manager-sip/documents/supported/
+
+## Configuration steps and screenshots
 一，Phone界面配置，在Phone的配置界面，在“Built In Bridge”选择“On”；
 二，DN界面配置，在号码界面配置中：
 1，在Recording Option，选择“Automatic Call Recording Enabled”；
