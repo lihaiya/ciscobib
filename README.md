@@ -24,7 +24,7 @@ https://developer.cisco.com/site/uc-manager-sip/documents/supported/
 二，DN界面配置，在号码界面配置中：
 1，在Recording Option，选择“Automatic Call Recording Enabled”；
 2，在“Recording Profile”选择，“Recording_Profile”; 
-3，在“Recording Media Source”下拉框，选择“Phone Preferred”即可！！！！
+3，在“Recording Media Source”下拉框，选择“Phone Preferred”即可！！！！！
 
 ![image](https://github.com/user-attachments/assets/d93e9fdd-527a-44e3-b5dd-bc7cddfbe546)
 ![image](https://github.com/user-attachments/assets/9aba110a-3743-40d9-b61a-eca92c11813a)
