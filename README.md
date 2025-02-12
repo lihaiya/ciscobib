@@ -1,4 +1,4 @@
-BIB,CiscoBIB,Cisco call manager,cucm, call manager,cisco,collaboration,CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone！思科录音系统！思科电话系统录音！思科CUCM录音！思科BIB录音！！！
+BIB,CiscoBIB,Cisco call manager,cucm, call manager,cisco,collaboration,CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone！思科录音系统！思科电话系统录音！思科CUCM录音！思科BIB录音！！！！
 
 Telephone terminal streaming recording, such as BIB recording supported by Cisco IP phone system:
 
@@ -24,7 +24,7 @@ https://developer.cisco.com/site/uc-manager-sip/documents/supported/
 二，DN界面配置，在号码界面配置中：
 1，在Recording Option，选择“Automatic Call Recording Enabled”；
 2，在“Recording Profile”选择，“Recording_Profile”; 
-3，在“Recording Media Source”下拉框，选择“Phone Preferred”即可！！！！！
+3，在“Recording Media Source”下拉框，选择“Phone Preferred”即可！
 
 ![image](https://github.com/user-attachments/assets/d93e9fdd-527a-44e3-b5dd-bc7cddfbe546)
 ![image](https://github.com/user-attachments/assets/9aba110a-3743-40d9-b61a-eca92c11813a)
