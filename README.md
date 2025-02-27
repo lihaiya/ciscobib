@@ -33,4 +33,4 @@ https://developer.cisco.com/site/uc-manager-sip/documents/supported/
 ![image](https://github.com/user-attachments/assets/4e95b410-e489-4279-b6ce-78a5f9917526)
 ![image](https://github.com/user-attachments/assets/73cefae8-48cb-4b3a-bca9-c6cea5a48db2)
 
-# 😄价值观：我们坚信，软件只有被用起来，才能给用户带去价值，才能让自身产生迭代！！！！！！！！！
+# 😄价值观：我们坚信，软件只有被用起来，才能给用户带去价值，才能让自身产生迭代！！！
