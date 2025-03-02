@@ -31,6 +31,6 @@ https://developer.cisco.com/site/uc-manager-sip/documents/supported/
 ![image](https://github.com/user-attachments/assets/4a1cdf08-71ee-43fa-b3dc-aa629d6dab2c)
 ![image](https://github.com/user-attachments/assets/95482dea-225a-41e7-acc5-c1a3c2846562)
 ![image](https://github.com/user-attachments/assets/4e95b410-e489-4279-b6ce-78a5f9917526)
-![image](https://github.com/user-attachments/assets/73cefae8-48cb-4b3a-bca9-c6cea5a48db2)
+![image](https://github.com/user-attachments/assets/f37895ba-443c-4096-b2c2-b2956c1ba53e)
 
 # 😄价值观：我们坚信，软件只有被用起来，才能给用户带去价值，才能让自身产生迭代！！！！！！
