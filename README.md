@@ -1,4 +1,4 @@
-BIB,CiscoBIB,Cisco call manager,cucm, call manager,cisco,collaboration,CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone！思科录音系统！思科电话系统录音！思科CUCM录音！思科BIB录音！
+BIB,CiscoBIB,Cisco call manager,cucm, call manager,cisco,collaboration,CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone!思科录音系统!思科电话系统录音!思科CUCM录音!思科BIB录音!!!
 
 Telephone terminal streaming recording, such as BIB recording supported by Cisco IP phone system:
 
@@ -13,7 +13,9 @@ Skype UserID：live:.cid.fedb411de91d9b
 
 Email:leehear@gmail.com
 
-WeChat:David_Li_Haiya
+WeChat:扫码下侧的企业微信二维码即可（可对公签合同，更有保障）
+
+![easyaicc-企业微信二维码](https://github.com/user-attachments/assets/ab8baec8-2b05-4b11-bde6-03a72314967e)
 
 ## Blow is the phone model supported Device Matrix
 Unified CM Silent Monitoring/Recording Supported Device Matrix:
@@ -33,4 +35,4 @@ https://developer.cisco.com/site/uc-manager-sip/documents/supported/
 ![image](https://github.com/user-attachments/assets/4e95b410-e489-4279-b6ce-78a5f9917526)
 ![image](https://github.com/user-attachments/assets/f37895ba-443c-4096-b2c2-b2956c1ba53e)
 
-# 😄价值观：我们坚信，软件只有被用起来，才能给用户带去价值，才能让自身产生迭代！！！！！
+# 😄价值观：我们坚信，软件只有被用起来，才能给用户带去价值，才能让自身产生迭代！！！
