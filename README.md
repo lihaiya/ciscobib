@@ -1,5 +1,5 @@
 BIB,CiscoBIB,Cisco call manager,cucm, call manager,cisco,collaboration,CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone!思科录音系统!思科电话系统录音!思科CUCM录音!
-思科BIB录音!!!!!!!!!
+思科BIB录音!!!!!!!!!!
 
 Telephone terminal streaming recording, such as BIB recording supported by Cisco IP phone system:
 
