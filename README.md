@@ -13,9 +13,9 @@ Skype UserID：live:.cid.fedb411de91d9b
 
 Email:leehear@gmail.com
 
-WeChat:扫码下侧的企业微信二维码即可（可对公签合同，更有保障）
+WeChat:扫码微信二维码即可
 
-![easyaicc-企业微信二维码](https://github.com/user-attachments/assets/ab8baec8-2b05-4b11-bde6-03a72314967e)
+![image](https://github.com/user-attachments/assets/56a74c5a-f672-4819-b6d0-9ddea996d849)
 
 ## Blow is the phone model supported Device Matrix
 Unified CM Silent Monitoring/Recording Supported Device Matrix:
