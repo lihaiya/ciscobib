@@ -1,5 +1,5 @@
 # CiscoBIB
-BIB,CiscoBIB,Cisco call manager,cucm, call manager,cisco,collaboration,CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone，思科录音系统，思科电话系统录音，思科CUCM录音，思科BIB录音!!!!
+BIB,CiscoBIB,Cisco call manager,cucm, call manager,cisco,collaboration,CiscoBIB Uses Built-In-Bridge (BIB) of Cisco IP phone，思科录音系统，思科电话系统录音，思科CUCM录音，思科BIB录音!
 Telephone terminal streaming recording, such as BIB recording supported by Cisco IP phone system:
 
 Since most Cisco IP phones support BIB function, the so-called BIB function is that when Cisco IP phones are on a call, they send their incoming and outgoing traffic to the voice gateway, and then pass it to the PSTN external landline (internal and external call recording) or landline user (internal call recording), while copying their incoming and outgoing traffic to the recording server, thereby realizing call recording.
