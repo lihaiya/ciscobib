@@ -6,14 +6,12 @@ Since most Cisco IP phones support BIB function, the so-called BIB function is t
 
 At this time, the recording software is located in the server that is interconnected with the IP phone network and the CUCM network, and can receive the traffic sent by the IP phone for recording.
 
-## 📫 How to reach us:
-Skype：https://join.skype.com/invite/rVbQH1igkQwV
-
-Skype UserID：live:.cid.fedb411de91d9b
-
-Email:leehear@gmail.com
-
-WeChat:扫码微信二维码即可
+## - 📫 How to reach us 📫:
+- 官方WeChat01:freeipcc
+- 官方WeChat02:freeaicc
+- Whatsapp：Click <a href="https://api.whatsapp.com/send?phone=+8615700176897&text=Hello">WhatsApp</a> to Chat
+- Email:leehear@gmail.com
+- WeChat:扫码微信二维码即可
 
 ![image](https://github.com/user-attachments/assets/56a74c5a-f672-4819-b6d0-9ddea996d849)
 
