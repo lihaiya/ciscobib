@@ -25,10 +25,14 @@ https://developer.cisco.com/site/uc-manager-sip/documents/supported/
 <img width="1410" height="370" alt="image" src="https://github.com/user-attachments/assets/2db81950-873d-49be-a575-9b04656ed4bb" />
 
 ## Configuration steps
+
 一，Phone界面配置，在Phone的配置界面，在“Built In Bridge”选择“On”；
+
 二，DN界面配置，在号码界面配置中：
 1，在Recording Option，选择“Automatic Call Recording Enabled”；
+
 2，在“Recording Profile”选择，“Recording_Profile”; 
+
 3，在“Recording Media Source”下拉框，选择“Phone Preferred”即可！
 
 
