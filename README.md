@@ -26,15 +26,57 @@ https://developer.cisco.com/site/uc-manager-sip/documents/supported/
 
 ## Configuration steps
 
-一，Phone界面配置，在Phone的配置界面，在“Built In Bridge”选择“On”；
+Cisco BiB(Built in Bridge) Recording Configuration:
 
-二，DN界面配置，在号码界面配置中：
-1，在Recording Option，选择“Automatic Call Recording Enabled”；
+Device > Device Settings > SIP Profile > Add New
+ - Name = SIP Profile for BIB Recording
+ Section : SIP OPTIONS Ping
+ - Enable OPTIONS Ping to monitor destination status for Trunks with Service Type "None (Default)" = Checked
+ - Ping Interval for In-service and Partially In-service Trunks (seconds) = 60
+Save
 
-2，在“Recording Profile”选择，“Recording_Profile”; 
 
-3，在“Recording Media Source”下拉框，选择“Phone Preferred”即可！
+Device > Trunk > Add New > Trunk Type = SIP Trunk > Next
+ - Device Name = SIP-Trunk-To-Recording-Server
+ - Device Pool
+ - PSTN Access = Unchecked
+ - SIP Trunk Security Profile
+ - SIP Profile = SIP Profile for BIB Recording
+Save
 
+
+Call Routing > Route/Hunt > Route Group > Add New
+ - Route Group Name = RG_Recording
+ - Select "SIP-Trunk-To-Recording-Server", then click "Add to Route Group" button
+Save
+
+Call Routing > Route/Hunt > Route List > Add New
+ - Name = RL_Recording
+ - CUCM Group
+Save
+Click "Add Route Group" button
+ - Route Group = "RG_Recording"
+Save
+
+Call Routing > Route/Hunt > Route Pattern > Add New
+ - Route Pattern
+ - Route Partition
+ - Gateway/Route List = RL_Recording
+ - Call Classification = OnNet
+ - Provide Outside Dial Tone = unchecked
+Save
+
+Device > Device Settings > Recording Profile > Add New
+ - Name
+ - Recording Calling Search Space
+ - Recording Destination Address
+Save
+
+Phone
+ - Built In Bridge = On
+DN
+ - Recording Option = Automatic Call Recording Enabled
+ - Recording Profile = Recording_Profile
 
 
 # 😄我们坚信：软件只有被用起来，才能给用户带去价值，才能让自身产生迭代！
