@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cisco BIB Recording System | Professional Call Recording Solution</title>
+  <!-- 引入核心资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0071e3',
+            secondary: '#1d1d1f',
+            accent: '#2997ff',
+            light: '#f5f5f7',
+            dark: '#111111'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto { content-visibility: auto; }
+      .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+      .text-gradient { 
+        background-clip: text; -webkit-background-clip: text; color: transparent;
+      }
+      .transition-all-300 { transition: all 0.3s ease; }
+      .hover-scale { transition: transform 0.3s ease; }
+      .hover-scale:hover { transform: scale(1.03); }
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+    }
+  </style>
+  
+  <!-- SEO 优化（核心关键词强化） -->
+  <meta name="description" content="Cisco BIB Recording System - Professional call recording solution for Cisco IP phones, supporting BIB recording on CUCM environment. CiscoBIB, Cisco call recording system, call recording for Cisco IP phones.">
+  <meta name="keywords" content="Cisco BIB, Ciscobib, Cisco call manager, cucm, Cisco recording system, 思科录音系统, call recording system, Cisco IP phone recording">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.ciscobib.com">
+  
+  <!-- 多语言 SEO 适配 -->
+  <link rel="alternate" hreflang="en" href="https://www.ciscobib.com">
+  <link rel="alternate" hreflang="fr" href="https://www.ciscobib.com/fr">
+  <link rel="alternate" hreflang="de" href="https://www.ciscobib.com/de">
+  <link rel="alternate" hreflang="es" href="https://www.ciscobib.com/es">
+  <link rel="alternate" hreflang="ru" href="https://www.ciscobib.com/ru">
+  <link rel="alternate" hreflang="pt" href="https://www.ciscobib.com/pt">
+  <link rel="alternate" hreflang="zh" href="https://www.ciscobib.com/zh">
+</head>
+
+<body class="font-inter bg-light text-secondary antialiased">
+  <!-- 导航栏（多语言版） -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+    <div class="glass-effect border-b border-gray-200/50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo（强化核心关键词） -->
+          <div class="flex items-center">
+            <a href="#" class="flex items-center">
+              <span class="text-primary text-2xl font-bold">Cisco<span class="text-accent">BIB</span></span>
+              <span class="ml-2 text-sm text-gray-500 hidden sm:inline" data-i18n="recording_system">Recording System</span>
+            </a>
+          </div>
+          
+          <!-- 导航链接 - 桌面版（英文默认） -->
+          <nav class="hidden md:flex space-x-8">
+            <a href="#features" class="text-gray-700 hover:text-primary transition-colors font-medium" data-i18n="nav_features">Features</a>
+            <a href="#how-it-works" class="text-gray-700 hover:text-primary transition-colors font-medium" data-i18n="nav_how_it_works">How It Works</a>
+            <a href="#configuration" class="text-gray-700 hover:text-primary transition-colors font-medium" data-i18n="nav_configuration">Configuration</a>
+            <a href="#supported-devices" class="text-gray-700 hover:text-primary transition-colors font-medium" data-i18n="nav_supported_phones">Supported Phones</a>
+            <a href="#contact" class="text-gray-700 hover:text-primary transition-colors font-medium" data-i18n="nav_contact">Contact</a>
+          </nav>
+          
+          <!-- 多语言切换（6种语言） -->
+          <div class="hidden md:flex items-center space-x-2">
+            <button data-lang="en" class="lang-btn px-2 py-1 rounded-full bg-primary text-white text-xs font-medium">EN</button>
+            <button data-lang="fr" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">FR</button>
+            <button data-lang="de" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">DE</button>
+            <button data-lang="es" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">ES</button>
+            <button data-lang="ru" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">RU</button>
+            <button data-lang="pt" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">PT</button>
+            <button data-lang="zh" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">ZH</button>
+          </div>
+          
+          <!-- GitHub 链接（更新为指定地址） -->
+          <a href="https://github.com/lihaiya/ciscobib" target="_blank" class="hidden md:flex items-center text-gray-700 hover:text-primary transition-colors">
+            <i class="fa fa-github text-xl mr-2"></i>
+            <span class="font-medium">GitHub</span>
+          </a>
+          
+          <!-- 汉堡菜单按钮 -->
+          <div class="md:hidden">
+            <button id="menu-toggle" class="text-gray-700 hover:text-primary">
+              <i class="fa fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 移动端菜单（多语言版） -->
+    <div id="mobile-menu" class="hidden md:hidden glass-effect border-b border-gray-200/50">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="#features" class="block py-2 text-gray-700 hover:text-primary font-medium" data-i18n="nav_features">Features</a>
+        <a href="#how-it-works" class="block py-2 text-gray-700 hover:text-primary font-medium" data-i18n="nav_how_it_works">How It Works</a>
+        <a href="#configuration" class="block py-2 text-gray-700 hover:text-primary font-medium" data-i18n="nav_configuration">Configuration</a>
+        <a href="#supported-devices" class="block py-2 text-gray-700 hover:text-primary font-medium" data-i18n="nav_supported_phones">Supported Phones</a>
+        <a href="#contact" class="block py-2 text-gray-700 hover:text-primary font-medium" data-i18n="nav_contact">Contact</a>
+        
+        <!-- 移动端语言切换 -->
+        <div class="flex flex-wrap gap-2 pt-2">
+          <button data-lang="en" class="lang-btn px-2 py-1 rounded-full bg-primary text-white text-xs font-medium">EN</button>
+          <button data-lang="fr" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">FR</button>
+          <button data-lang="de" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">DE</button>
+          <button data-lang="es" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">ES</button>
+          <button data-lang="ru" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">RU</button>
+          <button data-lang="pt" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">PT</button>
+          <button data-lang="zh" class="lang-btn px-2 py-1 rounded-full text-gray-700 hover:bg-gray-100 text-xs font-medium">ZH</button>
+        </div>
+        
+        <!-- 移动端 GitHub 链接 -->
+        <a href="https://github.com/lihaiya/ciscobib" target="_blank" class="flex items-center py-2 text-gray-700 hover:text-primary">
+          <i class="fa fa-github text-xl mr-2"></i>
+          <span class="font-medium">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 英雄区域（强化核心关键词） -->
+    <section class="pt-24 md:pt-32 pb-16 md:pb-24 bg-gradient-to-b from-light to-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 md:pr-12 mb-10 md:mb-0">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-secondary mb-6">
+              <span class="text-gradient bg-gradient-to-r from-primary to-accent">Cisco BIB</span>
+              <span class="block" data-i18n="call_recording_system">Call Recording System</span>
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.25rem)] text-gray-600 mb-8 leading-relaxed" data-i18n="hero_desc">
+              Professional call recording solution leveraging Cisco IP Phone's Built-in Bridge (BIB) feature for enterprise communication environments. CiscoBIB provides reliable call recording for CUCM systems.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#contact" class="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full font-medium transition-all shadow-lg hover:shadow-xl hover-scale" data-i18n="contact_us">
+                Contact Us
+              </a>
+              <a href="#how-it-works" class="px-8 py-3 bg-white hover:bg-gray-50 text-primary border border-primary rounded-full font-medium transition-all shadow-md hover:shadow-lg hover-scale" data-i18n="learn_more">
+                Learn More
+              </a>
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <div class="relative">
+              <div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-xl opacity-70"></div>
+              <img src="https://picsum.photos/id/180/800/600" alt="Cisco BIB Recording System" class="relative z-10 w-full h-auto rounded-xl shadow-2xl hover-scale">
+              <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg z-20 hover-scale">
+                <div class="flex items-center">
+                  <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fa fa-phone text-primary text-xl"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500" data-i18n="supported_phones">Supported Phones</p>
+                    <p class="font-semibold">200+ Cisco Models</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 特点区域（英文默认，关键词强化） -->
+    <section id="features" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-secondary mb-4">
+            <span class="text-gradient bg-gradient-to-r from-primary to-accent" data-i18n="system_features">Cisco BIB System Features</span>
+          </h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg" data-i18n="features_desc">
+            Comprehensive call recording solution for Cisco IP phones, meeting enterprise communication recording needs with CiscoBIB technology
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 特点卡片 1 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-phone text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-secondary" data-i18n="bib_tech">BIB Technology Support</h3>
+            <p class="text-gray-600" data-i18n="bib_tech_desc">
+              Leverage Cisco IP Phone's Built-in Bridge (BIB) feature for high-quality recording without additional hardware.
+            </p>
+          </div>
+          
+          <!-- 特点卡片 2 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-shield text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-secondary" data-i18n="enterprise_rel">Enterprise Reliability</h3>
+            <p class="text-gray-600" data-i18n="enterprise_rel_desc">
+              Designed for enterprise communication environments with high availability and data security to meet strict compliance requirements.
+            </p>
+          </div>
+          
+          <!-- 特点卡片 3 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-cogs text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-secondary" data-i18n="easy_config">Easy Configuration</h3>
+            <p class="text-gray-600" data-i18n="easy_config_desc">
+              Intuitive configuration interface for easy system deployment and management, reducing IT team workload.
+            </p>
+          </div>
+          
+          <!-- 特点卡片 4 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-search text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-secondary" data-i18n="smart_search">Smart Search</h3>
+            <p class="text-gray-600" data-i18n="smart_search_desc">
+              Advanced search functionality to quickly locate recording files by number, time, keywords and more.
+            </p>
+          </div>
+          
+          <!-- 特点卡片 5 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-file-text-o text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-secondary" data-i18n="complete_rec">Complete Recording</h3>
+            <p class="text-gray-600" data-i18n="complete_rec_desc">
+              Record both sides of the conversation to ensure complete retention of call content, supporting internal and external call recording.
+            </p>
+          </div>
+          
+          <!-- 特点卡片 6 -->
+          <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <i class="fa fa-line-chart text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-secondary" data-i18n="detailed_report">Detailed Reporting</h3>
+            <p class="text-gray-600" data-i18n="detailed_report_desc">
+              Comprehensive recording statistics and analysis reports to help businesses understand communication patterns and optimize processes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 工作原理区域（英文默认） -->
+    <section id="how-it-works" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-secondary mb-4">
+            <span class="text-gradient bg-gradient-to-r from-primary to-accent" data-i18n="how_it_works">How Cisco BIB Works</span>
+          </h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg" data-i18n="how_it_works_desc">
+            Understand how Cisco BIB recording system uses Built-in Bridge technology for high-quality call recording
+          </p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <div class="bg-white rounded-xl shadow-xl p-8 hover-scale">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                  <i class="fa fa-info text-primary text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-secondary" data-i18n="bib_tech_title">BIB Recording Technology</h3>
+              </div>
+              <p class="text-gray-600 mb-4" data-i18n="bib_tech_desc1">
+                Most Cisco IP phones support BIB functionality. When a call is active, the phone sends its input and output traffic to the voice gateway, then to external PSTN phones (internal/external call recording) or internal users, while copying input and output traffic to the recording server for call recording.
+              </p>
+              <p class="text-gray-600" data-i18n="bib_tech_desc2">
+                The recording software resides on a server interconnected with the IP phone network and CUCM network, capable of receiving traffic sent by IP phones for recording.
+              </p>
+            </div>
+            
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="bg-white rounded-lg shadow-md p-6 hover-scale">
+                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <i class="fa fa-check text-primary"></i>
+                </div>
+                <h4 class="font-semibold mb-2 text-secondary" data-i18n="high_quality">High Quality Recording</h4>
+                <p class="text-gray-600 text-sm" data-i18n="high_quality_desc">Preserve original call quality, clear and distinguishable</p>
+              </div>
+              
+              <div class="bg-white rounded-lg shadow-md p-6 hover-scale">
+                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <i class="fa fa-check text-primary"></i>
+                </div>
+                <h4 class="font-semibold mb-2 text-secondary" data-i18n="real_time">Real-time Monitoring</h4>
+                <p class="text-gray-600 text-sm" data-i18n="real_time_desc">Support real-time call monitoring and listening</p>
+              </div>
+              
+              <div class="bg-white rounded-lg shadow-md p-6 hover-scale">
+                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <i class="fa fa-check text-primary"></i>
+                </div>
+                <h4 class="font-semibold mb-2 text-secondary" data-i18n="multi_format">Multi-format Support</h4>
+                <p class="text-gray-600 text-sm" data-i18n="multi_format_desc">Support multiple audio formats for storage and export</p>
+              </div>
+              
+              <div class="bg-white rounded-lg shadow-md p-6 hover-scale">
+                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <i class="fa fa-check text-primary"></i>
+                </div>
+                <h4 class="font-semibold mb-2 text-secondary" data-i18n="secure_storage">Secure Storage</h4>
+                <p class="text-gray-600 text-sm" data-i18n="secure_storage_desc">Encrypted storage to prevent unauthorized access</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="md:w-1/2 md:pl-12">
+            <div class="relative">
+              <div class="absolute -inset-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-70"></div>
+              <img src="https://picsum.photos/id/160/800/600" alt="Cisco BIB Working Principle" class="relative z-10 w-full h-auto rounded-xl shadow-xl hover-scale">
+              
+              <div class="absolute top-1/4 -left-6 bg-white p-4 rounded-lg shadow-lg z-20 max-w-xs hover-scale">
+                <div class="flex items-start">
+                  <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                    <span class="text-white font-bold">1</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-secondary" data-i18n="ip_phone">IP Phone</h4>
+                    <p class="text-gray-600 text-sm" data-i18n="ip_phone_desc">Cisco IP Phone duplicates call audio stream via BIB feature</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="absolute top-1/2 -right-6 bg-white p-4 rounded-lg shadow-lg z-20 max-w-xs hover-scale">
+                <div class="flex items-start">
+                  <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                    <span class="text-white font-bold">2</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-secondary">CUCM</h4>
+                    <p class="text-gray-600 text-sm" data-i18n="cucm_desc">Cisco Unified Communications Manager manages phone configuration</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="absolute bottom-1/4 -left-6 bg-white p-4 rounded-lg shadow-lg z-20 max-w-xs hover-scale">
+                <div class="flex items-start">
+                  <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                    <span class="text-white font-bold">3</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-secondary" data-i18n="rec_server">Recording Server</h4>
+                    <p class="text-gray-600 text-sm" data-i18n="rec_server_desc">Receive audio stream and store high-quality recording files</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 配置指南区域（英文默认） -->
+    <section id="configuration" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-secondary mb-4">
+            <span class="text-gradient bg-gradient-to-r from-primary to-accent" data-i18n="config_guide">Configuration Guide</span>
+          </h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg" data-i18n="config_guide_desc">
+            Complete Cisco BIB recording system configuration in a few simple steps
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+              <h3 class="text-xl font-semibold mb-6 text-secondary flex items-center">
+                <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                  <i class="fa fa-cog text-primary"></i>
+                </span>
+                <span data-i18n="config_steps">Cisco BIB Configuration Steps</span>
+              </h3>
+              
+              <div class="space-y-6">
+                <div class="border-l-4 border-primary pl-4 py-1">
+                  <h4 class="font-semibold mb-2 text-secondary" data-i18n="config_step1">1. Phone Interface Configuration</h4>
+                  <p class="text-gray-600" data-i18n="config_step1_desc">
+                    In the Phone configuration interface, select "On" for "Built In Bridge";
+                  </p>
+                </div>
+                
+                <div class="border-l-4 border-primary pl-4 py-1">
+                  <h4 class="font-semibold mb-2 text-secondary" data-i18n="config_step2">2. DN Interface Configuration</h4>
+                  <p class="text-gray-600 mb-2" data-i18n="dn_config">
+                    In the Directory Number configuration:
+                  </p>
+                  <ol class="list-decimal list-inside text-gray-600 space-y-1 pl-4">
+                    <li data-i18n="dn_config1">In Recording Option, select "Automatic Call Recording Enabled";</li>
+                    <li data-i18n="dn_config2">In "Recording Profile", select "Recording_Profile";</li>
+                    <li data-i18n="dn_config3">In "Recording Media Source" dropdown, select "Phone Preferred".</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8 bg-white rounded-xl shadow-lg p-8 hover-scale">
+              <h3 class="text-xl font-semibold mb-6 text-secondary flex items-center">
+                <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                  <i class="fa fa-file-image-o text-primary"></i>
+                </span>
+                <span data-i18n="config_screenshots">Configuration Screenshots</span>
+              </h3>
+              
+              <div class="space-y-6">
+                <div>
+                  <h4 class="font-semibold mb-2 text-secondary" data-i18n="phone_config">Phone Configuration Interface</h4>
+                  <img src="https://picsum.photos/id/1/600/400" alt="Phone Configuration Interface" class="w-full h-auto rounded-lg shadow-md hover-scale">
+                </div>
+                
+                <div>
+                  <h4 class="font-semibold mb-2 text-secondary" data-i18n="dn_config_interface">DN Configuration Interface</h4>
+                  <img src="https://picsum.photos/id/2/600/400" alt="DN Configuration Interface" class="w-full h-auto rounded-lg shadow-md hover-scale">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <div class="bg-white rounded-xl shadow-lg p-8 h-full hover-scale">
+              <h3 class="text-xl font-semibold mb-6 text-secondary flex items-center">
+                <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                  <i class="fa fa-video-camera text-primary"></i>
+                </span>
+                <span data-i18n="video_tutorial">Video Tutorial</span>
+              </h3>
+              
+              <div class="relative rounded-lg overflow-hidden shadow-xl mb-6 aspect-video">
+                <img src="https://picsum.photos/id/96/800/450" alt="Video Tutorial Cover" class="w-full h-full object-cover">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <button class="w-20 h-20 bg-primary/80 hover:bg-primary rounded-full flex items-center justify-center transition-all">
+                    <i class="fa fa-play text-white text-2xl"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <h4 class="font-semibold mb-4 text-secondary" data-i18n="config_video">Configuration Guide Video</h4>
+              <p class="text-gray-600 mb-6" data-i18n="config_video_desc">
+                Watch our detailed video tutorial to learn how to quickly configure Cisco BIB recording system, including system installation, phone configuration and recording management.
+              </p>
+              
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fa fa-clock-o text-primary"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-secondary" data-i18n="video_length">Video Length</h5>
+                    <p class="text-gray-600 text-sm" data-i18n="video_length_val">15 minutes</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fa fa-calendar text-primary"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-secondary" data-i18n="updated_date">Updated Date</h5>
+                    <p class="text-gray-600 text-sm">May 2025</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                    <i class="fa fa-check-circle text-primary"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-secondary" data-i18n="content_cover">Content Coverage</h5>
+                    <p class="text-gray-600 text-sm" data-i18n="content_cover_desc">From system installation to advanced configuration</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 支持设备区域（强化关键词，更新链接） -->
+    <section id="supported-devices" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-secondary mb-4">
+            <span class="text-gradient bg-gradient-to-r from-primary to-accent" data-i18n="supported_phones_title">Supported Phones</span>
+          </h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg" data-i18n="supported_phones_desc">
+            Check the complete list of supported Cisco IP phones for Cisco BIB recording system
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-xl p-8 mb-12">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
+            <h3 class="text-xl font-semibold text-secondary mb-4 md:mb-0" data-i18n="support_matrix">Cisco IP Phone Support Matrix</h3>
+            <div class="flex flex-wrap gap-4">
+              <div class="relative">
+                <input type="text" placeholder="Search phone model" class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" data-i18n="search_placeholder">
+                <i class="fa fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              </div>
+              <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                <option data-i18n="all_models">All Models</option>
+                <option>8800 Series</option>
+                <option>7800 Series</option>
+                <option>6800 Series</option>
+                <option>3900 Series</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="min-w-full">
+              <thead>
+                <tr class="bg-gray-50">
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-i18n="phone_series">Phone Series</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-i18n="model">Model</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-i18n="bib_support">BIB Support</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-i18n="cucm_version">CUCM Version</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" data-i18n="status">Status</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                        <i class="fa fa-phone text-blue-500"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">8800 Series</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">Cisco 8811</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" data-i18n="supported">
+                      Supported
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    11.5+
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800" data-i18n="recommended">
+                      Recommended
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                        <i class="fa fa-phone text-blue-500"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">8800 Series</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">Cisco 8841</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" data-i18n="supported">
+                      Supported
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    11.5+
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800" data-i18n="recommended">
+                      Recommended
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                        <i class="fa fa-phone text-blue-500"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">7800 Series</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">Cisco 7811</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" data-i18n="supported">
+                      Supported
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    10.5+
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800" data-i18n="standard">
+                      Standard
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                        <i class="fa fa-phone text-blue-500"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">6800 Series</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">Cisco 6861</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" data-i18n="supported">
+                      Supported
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    11.0+
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800" data-i18n="recommended">
+                      Recommended
+                    </span>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                        <i class="fa fa-phone text-blue-500"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">3900 Series</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gray-900">Cisco 3905</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800" data-i18n="limited_support">
+                      Limited Support
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    9.0-10.5
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800" data-i18n="legacy_model">
+                      Legacy Model
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- 更新为指定的 View Full Support Matrix 链接 -->
+          <div class="mt-8 flex justify-center">
+            <a href="https://developer.cisco.com/site/uc-manager-sip/documents/supported/" target="_blank" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-all shadow-md hover:shadow-lg hover-scale">
+              <span data-i18n="view_full_matrix">View Full Support Matrix</span> <i class="fa fa-external-link ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                <i class="fa fa-check-circle text-primary text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-secondary" data-i18n="validated_models">Validated Models</h3>
+            </div>
+            <p class="text-gray-600 mb-4" data-i18n="validated_desc">
+              We have validated BIB recording functionality on over 200 Cisco IP phone models to ensure system stability and reliability.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fa fa-check text-green-500 mr-2"></i>
+                <span class="text-gray-600" data-i18n="series_8800">8800 Series (All models)</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-check text-green-500 mr-2"></i>
+                <span class="text-gray-600" data-i18n="series_7800">7800 Series (All models)</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-check text-green-500 mr-2"></i>
+                <span class="text-gray-600" data-i18n="series_6800">6800 Series (All models)</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-check text-green-500 mr-2"></i>
+                <span class="text-gray-600" data-i18n="series_3900">Selected 3900 Series</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                <i class="fa fa-exclamation-circle text-primary text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-secondary" data-i18n="compat_notes">Compatibility Notes</h3>
+            </div>
+            <p class="text-gray-600 mb-4" data-i18n="compat_desc">
+              Important considerations for Cisco BIB recording system compatibility with different phone models and CUCM versions.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fa fa-info-circle text-blue-500 mr-2"></i>
+                <span class="text-gray-600" data-i18n="compat1">Requires CUCM 10.5+ for full functionality</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-info-circle text-blue-500 mr-2"></i>
+                <span class="text-gray-600" data-i18n="compat2">Firmware version 11.XX+ recommended</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-info-circle text-blue-500 mr-2"></i>
+                <span class="text-gray-600" data-i18n="compat3">Network access to recording server required</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-info-circle text-blue-500 mr-2"></i>
+                <span class="text-gray-600" data-i18n="compat4">BIB feature must be enabled on phone</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-lg p-8 hover-scale">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                <i class="fa fa-question-circle text-primary text-xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-secondary" data-i18n="need_assistance">Need Assistance?</h3>
+            </div>
+            <p class="text-gray-600 mb-4" data-i18n="assistance_desc">
+              Not sure if your Cisco IP phone supports BIB recording? Contact our technical team for personalized support.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fa fa-envelope text-primary mr-2"></i>
+                <span class="text-gray-600">leehear@gmail.com</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-github text-primary mr-2"></i>
+                <span class="text-gray-600" data-i18n="github_support">GitHub Issues & Discussions</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-file-text-o text-primary mr-2"></i>
+                <span class="text-gray-600" data-i18n="tech_doc">Technical Documentation</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-video-camera text-primary mr-2"></i>
+                <span class="text-gray-600" data-i18n="live_demo">Live Demo Available</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 联系区域（更新为指定邮箱） -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-secondary mb-4">
+            <span class="text-gradient bg-gradient-to-r from-primary to-accent" data-i18n="contact_us_title">Contact Us</span>
+          </h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg" data-i18n="contact_desc">
+            Have questions about Cisco BIB recording system? Reach out to our technical team for support
+          </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-8 md:p-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-semibold mb-6 text-secondary" data-i18n="get_in_touch">Get in Touch</h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <i class="fa fa-envelope text-primary text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-secondary mb-1" data-i18n="email">Email</h4>
+                    <p class="text-gray-600">leehear@gmail.com</p>
+                    <p class="text-gray-500 text-sm mt-1" data-i18n="response_time">We typically respond within 24 hours</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <i class="fa fa-github text-primary text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-secondary mb-1">GitHub</h4>
+                    <a href="https://github.com/lihaiya/ciscobib" target="_blank" class="text-primary hover:underline">github.com/lihaiya/ciscobib</a>
+                    <p class="text-gray-500 text-sm mt-1" data-i18n="github_desc">Source code, issues and documentation</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <i class="fa fa-file-text-o text-primary text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-secondary mb-1" data-i18n="documentation">Documentation</h4>
+                    <a href="#" class="text-primary hover:underline" data-i18n="tech_guide">Complete Technical Guide</a>
+                    <p class="text-gray-500 text-sm mt-1" data-i18n="docs_desc">Installation and configuration manuals</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-semibold mb-6 text-secondary" data-i18n="send_message">Send a Message</h3>
+              <form class="space-y-4">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="name">Name</label>
+                  <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" data-i18n="name_placeholder" placeholder="Your name">
+                </div>
+                
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="email_label">Email</label>
+                  <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" data-i18n="email_placeholder" placeholder="Your email address">
+                </div>
+                
+                <div>
+                  <label for="subject" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="subject">Subject</label>
+                  <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                    <option data-i18n="general_inquiry">General Inquiry</option>
+                    <option data-i18n="tech_support">Technical Support</option>
+                    <option data-i18n="config_help">Configuration Help</option>
+                    <option data-i18n="compat_question">Compatibility Question</option>
+                    <option data-i18n="other">Other</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label for="message" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="message">Message</label>
+                  <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" data-i18n="message_placeholder" placeholder="Your message..."></textarea>
+                </div>
+                
+                <button type="submit" class="w-full px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-all shadow-md hover:shadow-lg" data-i18n="send_message_btn">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- 页脚（强化关键词，精简信息） -->
+  <footer class="bg-secondary text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-1">
+          <div class="mb-4">
+            <span class="text-white text-2xl font-bold">Cisco<span class="text-accent">BIB</span></span>
+          </div>
+          <p class="text-gray-400 mb-4" data-i18n="footer_desc">
+            Professional call recording solution for Cisco IP phones using BIB technology.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://github.com/lihaiya/ciscobib" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-github text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-envelope text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-document text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4" data-i18n="quick_links">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#features" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_features">Features</a></li>
+            <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_how_it_works">How It Works</a></li>
+            <li><a href="#configuration" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_configuration">Configuration</a></li>
+            <li><a href="#supported-devices" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_supported_phones">Supported Phones</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4" data-i18n="resources">Resources</h4>
+          <ul class="space-y-2">
+            <li><a href="https://github.com/lihaiya/ciscobib" target="_blank" class="text-gray-400 hover:text-white transition-colors">GitHub Repository</a></li>
+            <li><a href="https://developer.cisco.com/site/uc-manager-sip/documents/supported/" target="_blank" class="text-gray-400 hover:text-white transition-colors">Cisco Support Matrix</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="tech_doc">Technical Documentation</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="video_tutorials">Video Tutorials</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="faq">FAQ</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4" data-i18n="contact">Contact</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center text-gray-400">
+              <i class="fa fa-envelope mr-2"></i> leehear@gmail.com
+            </li>
+            <li class="flex items-center text-gray-400">
+              <i class="fa fa-github mr-2"></i> github.com/lihaiya/ciscobib
+            </li>
+            <li class="flex items-center text-gray-400" data-i18n="support_247">
+              <i class="fa fa-clock-o mr-2"></i> 24/7 Technical Support
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          © 2025 Cisco BIB Recording System. All rights reserved.
+        </p>
+        <p class="text-gray-400 text-sm mt-2 md:mt-0">
+          Cisco is a registered trademark of Cisco Systems, Inc.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 脚本（基础交互 + 完整多语言切换） -->
+  <script>
+    // 多语言翻译数据（7种语言：英、法、德、西、俄、葡、中）
+    const translations = {
+      en: {
+        recording_system: "Recording System",
+        nav_features: "Features",
+        nav_how_it_works: "How It Works",
+        nav_configuration: "Configuration",
+        nav_supported_phones: "Supported Phones",
+        nav_contact: "Contact",
+        call_recording_system: "Call Recording System",
+        hero_desc: "Professional call recording solution leveraging Cisco IP Phone's Built-in Bridge (BIB) feature for enterprise communication environments. CiscoBIB provides reliable call recording for CUCM systems.",
+        contact_us: "Contact Us",
+        learn_more: "Learn More",
+        supported_phones: "Supported Phones",
+        system_features: "Cisco BIB System Features",
+        features_desc: "Comprehensive call recording solution for Cisco IP phones, meeting enterprise communication recording needs with CiscoBIB technology",
+        bib_tech: "BIB Technology Support",
+        bib_tech_desc: "Leverage Cisco IP Phone's Built-in Bridge (BIB) feature for high-quality recording without additional hardware.",
+        enterprise_rel: "Enterprise Reliability",
+        enterprise_rel_desc: "Designed for enterprise communication environments with high availability and data security to meet strict compliance requirements.",
+        easy_config: "Easy Configuration",
+        easy_config_desc: "Intuitive configuration interface for easy system deployment and management, reducing IT team workload.",
+        smart_search: "Smart Search",
+        smart_search_desc: "Advanced search functionality to quickly locate recording files by number, time, keywords and more.",
+        complete_rec: "Complete Recording",
+        complete_rec_desc: "Record both sides of the conversation to ensure complete retention of call content, supporting internal and external call recording.",
+        detailed_report: "Detailed Reporting",
+        detailed_report_desc: "Comprehensive recording statistics and analysis reports to help businesses understand communication patterns and optimize processes.",
+        how_it_works: "How Cisco BIB Works",
+        how_it_works_desc: "Understand how Cisco BIB recording system uses Built-in Bridge technology for high-quality call recording",
+        bib_tech_title: "BIB Recording Technology",
+        bib_tech_desc1: "Most Cisco IP phones support BIB functionality. When a call is active, the phone sends its input and output traffic to the voice gateway, then to external PSTN phones (internal/external call recording) or internal users, while copying input and output traffic to the recording server for call recording.",
+        bib_tech_desc2: "The recording software resides on a server interconnected with the IP phone network and CUCM network, capable of receiving traffic sent by IP phones for recording.",
+        high_quality: "High Quality Recording",
+        high_quality_desc: "Preserve original call quality, clear and distinguishable",
+        real_time: "Real-time Monitoring",
+        real_time_desc: "Support real-time call monitoring and listening",
+        multi_format: "Multi-format Support",
+        multi_format_desc: "Support multiple audio formats for storage and export",
+        secure_storage: "Secure Storage",
+        secure_storage_desc: "Encrypted storage to prevent unauthorized access",
+        ip_phone: "IP Phone",
+        ip_phone_desc: "Cisco IP Phone duplicates call audio stream via BIB feature",
+        cucm_desc: "Cisco Unified Communications Manager manages phone configuration",
+        rec_server: "Recording Server",
+        rec_server_desc: "Receive audio stream and store high-quality recording files",
+        config_guide: "Configuration Guide",
+        config_guide_desc: "Complete Cisco BIB recording system configuration in a few simple steps",
+        config_steps: "Cisco BIB Configuration Steps",
+        config_step1: "1. Phone Interface Configuration",
+        config_step1_desc: "In the Phone configuration interface, select \"On\" for \"Built In Bridge\";",
+        config_step2: "2. DN Interface Configuration",
+        dn_config: "In the Directory Number configuration:",
+        dn_config1: "In Recording Option, select \"Automatic Call Recording Enabled\";",
+        dn_config2: "In \"Recording Profile\", select \"Recording_Profile\";",
+        dn_config3: "In \"Recording Media Source\" dropdown, select \"Phone Preferred\".",
+        config_screenshots: "Configuration Screenshots",
+        phone_config: "Phone Configuration Interface",
+        dn_config_interface: "DN Configuration Interface",
+        video_tutorial: "Video Tutorial",
+        config_video: "Configuration Guide Video",
+        config_video_desc: "Watch our detailed video tutorial to learn how to quickly configure Cisco BIB recording system, including system installation, phone configuration and recording management.",
+        video_length: "Video Length",
+        video_length_val: "15 minutes",
+        updated_date: "Updated Date",
+        content_cover: "Content Coverage",
+        content_cover_desc: "From system installation to advanced configuration",
+        supported_phones_title: "Supported Phones",
+        supported_phones_desc: "Check the complete list of supported Cisco IP phones for Cisco BIB recording system",
+        support_matrix: "Cisco IP Phone Support Matrix",
+        search_placeholder: "Search phone model",
+        all_models: "All Models",
+        phone_series: "Phone Series",
+        model: "Model",
+        bib_support: "BIB Support",
+        cucm_version: "CUCM Version",
+        status: "Status",
+        supported: "Supported",
+        recommended: "Recommended",
+        standard: "Standard",
+        limited_support: "Limited Support",
+        legacy_model: "Legacy Model",
+        view_full_matrix: "View Full Support Matrix",
+        validated_models: "Validated Models",
+        validated_desc: "We have validated BIB recording functionality on over 200 Cisco IP phone models to ensure system stability and reliability.",
+        series_8800: "8800 Series (All models)",
+        series_7800: "7800 Series (All models)",
+        series_6800: "6800 Series (All models)",
+        series_3900: "Selected 3900 Series",
+        compat_notes: "Compatibility Notes",
+        compat_desc: "Important considerations for Cisco BIB recording system compatibility with different phone models and CUCM versions.",
+        compat1: "Requires CUCM 10.5+ for full functionality",
+        compat2: "Firmware version 11.XX+ recommended",
+        compat3: "Network access to recording server required",
+        compat4: "BIB feature must be enabled on phone",
+        need_assistance: "Need Assistance?",
+        assistance_desc: "Not sure if your Cisco IP phone supports BIB recording? Contact our technical team for personalized support.",
+        github_support: "GitHub Issues & Discussions",
+        tech_doc: "Technical Documentation",
+        live_demo: "Live Demo Available",
+        contact_us_title: "Contact Us",
+        contact_desc: "Have questions about Cisco BIB recording system? Reach out to our technical team for support",
+        get_in_touch: "Get in Touch",
+        email: "Email",
+        response_time: "We typically respond within 24 hours",
+        github_desc: "Source code, issues and documentation",
+        documentation: "Documentation",
+        tech_guide: "Complete Technical Guide",
+        docs_desc: "Installation and configuration manuals",
+        send_message: "Send a Message",
+        name: "Name",
+        name_placeholder: "Your name",
+        email_label: "Email",
+        email_placeholder: "Your email address",
+        subject: "Subject",
+        general_inquiry: "General Inquiry",
+        tech_support: "Technical Support",
+        config_help: "Configuration Help",
+        compat_question: "Compatibility Question",
+        other: "Other",
+        message: "Message",
+        message_placeholder: "Your message...",
+        send_message_btn: "Send Message",
+        footer_desc: "Professional call recording solution for Cisco IP phones using BIB technology.",
+        quick_links: "Quick Links",
+        resources: "Resources",
+        video_tutorials: "Video Tutorials",
+        faq: "FAQ",
+        contact: "Contact",
+        support_247: "24/7 Technical Support"
+      },
+      fr: {
+        recording_system: "Système d'enregistrement",
+        nav_features: "Fonctionnalités",
+        nav_how_it_works: "Comment ça marche",
+        nav_configuration: "Configuration",
+        nav_supported_phones: "Téléphones compatibles",
+        nav_contact: "Contact",
+        call_recording_system: "Système d'enregistrement d'appels",
+        hero_desc: "Solution d'enregistrement d'appels professionnelle utilisant la fonction Built-in Bridge (BIB) des téléphones IP Cisco pour les environnements de communication d'entreprise. CiscoBIB fournit un enregistrement d'appels fiable pour les systèmes CUCM.",
+        contact_us: "Nous contacter",
+        learn_more: "En savoir plus",
+        supported_phones: "Téléphones compatibles",
+        system_features: "Fonctionnalités du système Cisco BIB",
+        features_desc: "Solution complète d'enregistrement d'appels pour les téléphones IP Cisco, répondant aux besoins d'enregistrement de communication d'entreprise avec la technologie CiscoBIB",
+        bib_tech: "Prise en charge de la technologie BIB",
+        bib_tech_desc: "Utilisez la fonction Built-in Bridge (BIB) des téléphones IP Cisco pour un enregistrement de haute qualité sans matériel supplémentaire.",
+        enterprise_rel: "Fiabilité d'entreprise",
+        enterprise_rel_desc: "Conçu pour les environnements de communication d'entreprise avec une haute disponibilité et une sécurité des données pour répondre aux exigences strictes de conformité.",
+        easy_config: "Configuration facile",
+        easy_config_desc: "Interface de configuration intuitive pour un déploiement et une gestion faciles du système, réduisant la charge de travail de l'équipe informatique.",
+        smart_search: "Recherche intelligente",
+        smart_search_desc: "Fonctionnalité de recherche avancée pour localiser rapidement les fichiers d'enregistrement par numéro, heure, mots-clés et plus.",
+        complete_rec: "Enregistrement complet",
+        complete_rec_desc: "Enregistrez les deux côtés de la conversation pour assurer la conservation complète du contenu des appels, prenant en charge l'enregistrement des appels internes et externes.",
+        detailed_report: "Rapports détaillés",
+        detailed_report_desc: "Statistiques d'enregistrement complètes et rapports d'analyse pour aider les entreprises à comprendre les modèles de communication et à optimiser les processus.",
+        how_it_works: "Comment fonctionne Cisco BIB",
+        how_it_works_desc: "Comprenez comment le système d'enregistrement Cisco BIB utilise la technologie Built-in Bridge pour un enregistrement d'appels de haute qualité",
+        bib_tech_title: "Technologie d'enregistrement BIB",
+        bib_tech_desc1: "La plupart des téléphones IP Cisco prennent en charge la fonctionnalité BIB. Lorsqu'un appel est actif, le téléphone envoie son trafic d'entrée et de sortie à la passerelle vocale, puis aux téléphones PSTN externes (enregistrement d'appels internes/externes) ou aux utilisateurs internes, tout en copiant le trafic d'entrée et de sortie vers le serveur d'enregistrement pour l'enregistrement des appels.",
+        bib_tech_desc2: "Le logiciel d'enregistrement réside sur un serveur interconnecté avec le réseau de téléphones IP et le réseau CUCM, capable de recevoir le trafic envoyé par les téléphones IP pour l'enregistrement.",
+        high_quality: "Enregistrement de haute qualité",
+        high_quality_desc: "Préservez la qualité d'appel originale, claire et distinguishable",
+        real_time: "Surveillance en temps réel",
+        real_time_desc: "Prise en charge de la surveillance et de l'écoute des appels en temps réel",
+        multi_format: "Prise en charge de plusieurs formats",
+        multi_format_desc: "Prise en charge de plusieurs formats audio pour le stockage et l'exportation",
+        secure_storage: "Stockage sécurisé",
+        secure_storage_desc: "Stockage crypté pour empêcher l'accès non autorisé",
+        ip_phone: "Téléphone IP",
+        ip_phone_desc: "Le téléphone IP Cisco duplique le flux audio de l'appel via la fonction BIB",
+        cucm_desc: "Cisco Unified Communications Manager gère la configuration du téléphone",
+        rec_server: "Serveur d'enregistrement",
+        rec_server_desc: "Recevoir le flux audio et stocker des fichiers d'enregistrement de haute qualité",
+        config_guide: "Guide de configuration",
+        config_guide_desc: "Configuration complète du système d'enregistrement Cisco BIB en quelques étapes simples",
+        config_steps: "Étapes de configuration Cisco BIB",
+        config_step1: "1. Configuration de l'interface du téléphone",
+        config_step1_desc: "Dans l'interface de configuration du téléphone, sélectionnez \"On\" pour \"Built In Bridge\";",
+        config_step2: "2. Configuration de l'interface DN",
+        dn_config: "Dans la configuration du numéro d'annuaire:",
+        dn_config1: "Dans l'option d'enregistrement, sélectionnez \"Automatic Call Recording Enabled\";",
+        dn_config2: "Dans \"Recording Profile\", sélectionnez \"Recording_Profile\";",
+        dn_config3: "Dans le menu déroulant \"Recording Media Source\", sélectionnez \"Phone Preferred\".",
+        config_screenshots: "Captures d'écran de configuration",
+        phone_config: "Interface de configuration du téléphone",
+        dn_config_interface: "Interface de configuration DN",
+        video_tutorial: "Tutoriel vidéo",
+        config_video: "Vidéo du guide de configuration",
+        config_video_desc: "Regardez notre tutoriel vidéo détaillé pour apprendre à configurer rapidement le système d'enregistrement Cisco BIB, y compris l'installation du système, la configuration du téléphone et la gestion des enregistrements.",
+        video_length: "Durée de la vidéo",
+        video_length_val: "15 minutes",
+        updated_date: "Date de mise à jour",
+        content_cover: "Couverture du contenu",
+        content_cover_desc: "De l'installation du système à la configuration avancée",
+        supported_phones_title: "Téléphones compatibles",
+        supported_phones_desc: "Consultez la liste complète des téléphones IP Cisco compatibles avec le système d'enregistrement Cisco BIB",
+        support_matrix: "Matrice de prise en charge des téléphones IP Cisco",
+        search_placeholder: "Rechercher un modèle de téléphone",
+        all_models: "Tous les modèles",
+        phone_series: "Série de téléphones",
+        model: "Modèle",
+        bib_support: "Prise en charge BIB",
+        cucm_version: "Version CUCM",
+        status: "Statut",
+        supported: "Prise en charge",
+        recommended: "Recommandé",
+        standard: "Standard",
+        limited_support: "Prise en charge limitée",
+        legacy_model: "Modèle ancien",
+        view_full_matrix: "Voir la matrice complète",
+        validated_models: "Modèles validés",
+        validated_desc: "Nous avons validé la fonctionnalité d'enregistrement BIB sur plus de 200 modèles de téléphones IP Cisco pour assurer la stabilité et la fiabilité du système.",
+        series_8800: "Série 8800 (Tous les modèles)",
+        series_7800: "Série 7800 (Tous les modèles)",
+        series_6800: "Série 6800 (Tous les modèles)",
+        series_3900: "Série 3900 sélectionnée",
+        compat_notes: "Notes de compatibilité",
+        compat_desc: "Considérations importantes pour la compatibilité du système d'enregistrement Cisco BIB avec différents modèles de téléphones et versions CUCM.",
+        compat1: "Nécessite CUCM 10.5+ pour une fonctionnalité complète",
+        compat2: "Version du micrologiciel 11.XX+ recommandée",
+        compat3: "Accès réseau au serveur d'enregistrement requis",
+        compat4: "La fonction BIB doit être activée sur le téléphone",
+        need_assistance: "Besoin d'aide?",
+        assistance_desc: "Vous ne savez pas si votre téléphone IP Cisco prend en charge l'enregistrement BIB? Contactez notre équipe technique pour un support personnalisé.",
+        github_support: "Problèmes et discussions GitHub",
+        tech_doc: "Documentation technique",
+        live_demo: "Démo en direct disponible",
+        contact_us_title: "Nous contacter",
+        contact_desc: "Vous avez des questions sur le système d'enregistrement Cisco BIB? Contactez notre équipe technique pour obtenir de l'aide",
+        get_in_touch: "Nous contacter",
+        email: "E-mail",
+        response_time: "Nous répondons généralement dans les 24 heures",
+        github_desc: "Code source, problèmes et documentation",
+        documentation: "Documentation",
+        tech_guide: "Guide technique complet",
+        docs_desc: "Manuels d'installation et de configuration",
+        send_message: "Envoyer un message",
+        name: "Nom",
+        name_placeholder: "Votre nom",
+        email_label: "E-mail",
+        email_placeholder: "Votre adresse e-mail",
+        subject: "Sujet",
+        general_inquiry: "Demande générale",
+        tech_support: "Support technique",
+        config_help: "Aide à la configuration",
+        compat_question: "Question de compatibilité",
+        other: "Autre",
+        message: "Message",
+        message_placeholder: "Votre message...",
+        send_message_btn: "Envoyer le message",
+        footer_desc: "Solution d'enregistrement d'appels professionnelle pour les téléphones IP Cisco utilisant la technologie BIB.",
+        quick_links: "Liens rapides",
+        resources: "Ressources",
+        video_tutorials: "Tutoriels vidéo",
+        faq: "FAQ",
+        contact: "Contact",
+        support_247: "Support technique 24h/24, 7j/7"
+      },
+      de: {
+        recording_system: "Aufnahmesystem",
+        nav_features: "Funktionen",
+        nav_how_it_works: "Funktionsweise",
+        nav_configuration: "Konfiguration",
+        nav_supported_phones: "Unterstützte Telefone",
+        nav_contact: "Kontakt",
+        call_recording_system: "Anrufaufnahmesystem",
+        hero_desc: "Professionelle Anrufaufnahmelösung unter Nutzung der Built-in Bridge (BIB)-Funktion von Cisco IP-Telefonen für Unternehmenskommunikationsumgebungen. CiscoBIB bietet zuverlässige Anrufaufzeichnung für CUCM-Systeme.",
+        contact_us: "Kontaktieren Sie uns",
+        learn_more: "Mehr erfahren",
+        supported_phones: "Unterstützte Telefone",
+        system_features: "Cisco BIB Systemfunktionen",
+        features_desc: "Umfassende Anrufaufnahmelösung für Cisco IP-Telefone, die die Anforderungen der Unternehmenskommunikationsaufzeichnung mit CiscoBIB-Technologie erfüllt",
+        bib_tech: "BIB-Technologieunterstützung",
+        bib_tech_desc: "Nutzen Sie die Built-in Bridge (BIB)-Funktion von Cisco IP-Telefonen für hochwertige Aufnahmen ohne zusätzliche Hardware.",
+        enterprise_rel: "Unternehmenszuverlässigkeit",
+        enterprise_rel_desc: "Entworfen für Unternehmenskommunikationsumgebungen mit hoher Verfügbarkeit und Datensicherheit, um strenge Compliance-Anforderungen zu erfüllen.",
+        easy_config: "Einfache Konfiguration",
+        easy_config_desc: "Intuitive Konfigurationsoberfläche für einfache Systembereitstellung und -verwaltung, reduziert den Arbeitsaufwand des IT-Teams.",
+        smart_search: "Intelligente Suche",
+        smart_search_desc: "Erweiterte Suchfunktion, um Aufzeichnungsdateien schnell nach Nummer, Zeit, Schlüsselwörtern und mehr zu finden.",
+        complete_rec: "Vollständige Aufzeichnung",
+        complete_rec_desc: "Zeichnen Sie beide Seiten des Gesprächs auf, um die vollständige Erhaltung des Anrufinhalts zu gewährleisten, unterstützt die Aufzeichnung interner und externer Anrufe.",
+        detailed_report: "Detaillierte Berichte",
+        detailed_report_desc: "Umfassende Aufzeichnungsstatistiken und Analyseberichte, um Unternehmen zu helfen, Kommunikationsmuster zu verstehen und Prozesse zu optimieren.",
+        how_it_works: "Wie Cisco BIB funktioniert",
+        how_it_works_desc: "Verstehen Sie, wie das Cisco BIB-Aufnahmesystem die Built-in Bridge-Technologie für hochwertige Anrufaufzeichnungen verwendet",
+        bib_tech_title: "BIB-Aufnahmetechnologie",
+        bib_tech_desc1: "Die meisten Cisco IP-Telefone unterstützen die BIB-Funktionalität. Wenn ein Anruf aktiv ist, sendet das Telefon seinen Ein- und Ausgangsverkehr zur Sprachgateway, dann zu externen PSTN-Telefonen (interne/externe Anrufaufzeichnung) oder internen Benutzern, während es Ein- und Ausgangsverkehr zum Aufnahmeserver kopiert, um Anrufaufzeichnungen durchzuführen.",
+        bib_tech_desc2: "Die Aufnahmesoftware befindet sich auf einem Server, der mit dem IP-Telefonnetz und dem CUCM-Netzwerk verbunden ist und in der Lage ist, den von IP-Telefonen gesendeten Verkehr zur Aufzeichnung zu empfangen.",
+        high_quality: "Hochwertige Aufzeichnung",
+        high_quality_desc: "Erhalten Sie die ursprüngliche Anrufqualität, klar und unterscheidbar",
+        real_time: "Echtzeit-Überwachung",
+        real_time_desc: "Unterstützt Echtzeit-Anrufüberwachung und -abhörung",
+        multi_format: "Multi-Format-Unterstützung",
+        multi_format_desc: "Unterstützt mehrere Audioformate zur Speicherung und zum Export",
+        secure_storage: "Sicherer Speicher",
+        secure_storage_desc: "Verschlüsselter Speicher, um unbefugten Zugriff zu verhindern",
+        ip_phone: "IP-Telefon",
+        ip_phone_desc: "Cisco IP-Telefon dupliziert den Anruf-Audiostream über die BIB-Funktion",
+        cucm_desc: "Cisco Unified Communications Manager verwaltet die Telefonkonfiguration",
+        rec_server: "Aufnahmeserver",
+        rec_server_desc: "Empfangen Sie den Audiostream und speichern Sie hochwertige Aufzeichnungsdateien",
+        config_guide: "Konfigurationsanleitung",
+        config_guide_desc: "Vollständige Konfiguration des Cisco BIB-Aufnahmesystems in wenigen einfachen Schritten",
+        config_steps: "Cisco BIB Konfigurationsschritte",
+        config_step1: "1. Telefon-Schnittstellenkonfiguration",
+        config_step1_desc: "Wählen Sie in der Telefonkonfigurationsoberfläche \"On\" für \"Built In Bridge\";",
+        config_step2: "2. DN-Schnittstellenkonfiguration",
+        dn_config: "In der Verzeichnisnummer-Konfiguration:",
+        dn_config1: "Wählen Sie in der Aufnahmeoption \"Automatic Call Recording Enabled\";",
+        dn_config2: "Wählen Sie in \"Recording Profile\" \"Recording_Profile\";",
+        dn_config3: "Wählen Sie im Dropdown-Menü \"Recording Media Source\" \"Phone Preferred\".",
+        config_screenshots: "Konfigurations-Screenshots",
+        phone_config: "Telefon-Konfigurationsoberfläche",
+        dn_config_interface: "DN-Konfigurationsoberfläche",
+        video_tutorial: "Video-Tutorial",
+        config_video: "Video zur Konfigurationsanleitung",
+        config_video_desc: "Sehen Sie sich unser detailliertes Video-Tutorial an, um zu lernen, wie Sie das Cisco BIB-Aufnahmesystem schnell konfigurieren, einschließlich Systeminstallation, Telefonkonfiguration und Aufzeichnungsverwaltung.",
+        video_length: "Videolänge",
+        video_length_val: "15 Minuten",
+        updated_date: "Aktualisierungsdatum",
+        content_cover: "Inhaltsabdeckung",
+        content_cover_desc: "Von der Systeminstallation zur erweiterten Konfiguration",
+        supported_phones_title: "Unterstützte Telefone",
+        supported_phones_desc: "Sehen Sie sich die vollständige Liste der unterstützten Cisco IP-Telefone für das Cisco BIB-Aufnahmesystem an",
+        support_matrix: "Cisco IP-Telefon Unterstützungsmatrix",
+        search_placeholder: "Telefonmodell suchen",
+        all_models: "Alle Modelle",
+        phone_series: "Telefonserie",
+        model: "Modell",
+        bib_support: "BIB-Unterstützung",
+        cucm_version: "CUCM-Version",
+        status: "Status",
+        supported: "Unterstützt",
+        recommended: "Empfohlen",
+        standard: "Standard",
+        limited_support: "Begrenzte Unterstützung",
+        legacy_model: "Altes Modell",
+        view_full_matrix: "Vollständige Unterstützungsmatrix anzeigen",
+        validated_models: "Validierte Modelle",
+        validated_desc: "Wir haben die BIB-Aufzeichnungsfunktion auf über 200 Cisco IP-Telefonmodellen validiert, um Systemstabilität und Zuverlässigkeit zu gewährleisten.",
+        series_8800: "Serie 8800 (Alle Modelle)",
+        series_7800: "Serie 7800 (Alle Modelle)",
+        series_6800: "Serie 6800 (Alle Modelle)",
+        series_3900: "Ausgewählte Serie 3900",
+        compat_notes: "Kompatibilitätshinweise",
+        compat_desc: "Wichtige Überlegungen zur Kompatibilität des Cisco BIB-Aufnahmesystems mit verschiedenen Telefonmodellen und CUCM-Versionen.",
+        compat1: "Erfordert CUCM 10.5+ für volle Funktionalität",
+        compat2: "Firmware-Version 11.XX+ empfohlen",
+        compat3: "Netzwerkzugriff auf Aufnahmeserver erforderlich",
+        compat4: "BIB-Funktion muss auf dem Telefon aktiviert sein",
+        need_assistance: "Brauchen Sie Hilfe?",
+        assistance_desc: "Nicht sicher, ob Ihr Cisco IP-Telefon BIB-Aufzeichnung unterstützt? Kontaktieren Sie unser technisches Team für persönlichen Support.",
+        github_support: "GitHub Probleme & Diskussionen",
+        tech_doc: "Technische Dokumentation",
+        live_demo: "Live-Demo verfügbar",
+        contact_us_title: "Kontaktieren Sie uns",
+        contact_desc: "Haben Sie Fragen zum Cisco BIB-Aufnahmesystem? Wenden Sie sich an unser technisches Team für Support",
+        get_in_touch: "Kontakt aufnehmen",
+        email: "E-Mail",
+        response_time: "Wir antworten normalerweise innerhalb von 24 Stunden",
+        github_desc: "Quellcode, Probleme und Dokumentation",
+        documentation: "Dokumentation",
+        tech_guide: "Vollständige technische Anleitung",
+        docs_desc: "Installations- und Konfigurationshandbücher",
+        send_message: "Nachricht senden",
+        name: "Name",
+        name_placeholder: "Ihr Name",
+        email_label: "E-Mail",
+        email_placeholder: "Ihre E-Mail-Adresse",
+        subject: "Betreff",
+        general_inquiry: "Allgemeine Anfrage",
+        tech_support: "Technischer Support",
+        config_help: "Konfigurationshilfe",
+        compat_question: "Kompatibilitätsfrage",
+        other: "Andere",
+        message: "Nachricht",
+        message_placeholder: "Ihre Nachricht...",
+        send_message_btn: "Nachricht senden",
+        footer_desc: "Professionelle Anrufaufnahmelösung für Cisco IP-Telefone mit BIB-Technologie.",
+        quick_links: "Schnellzugriffe",
+        resources: "Ressourcen",
+        video_tutorials: "Video-Tutorials",
+        faq: "FAQ",
+        contact: "Kontakt",
+        support_247: "24/7 Technischer Support"
+      },
+      es: {
+        recording_system: "Sistema de Grabación",
+        nav_features: "Características",
+        nav_how_it_works: "Cómo Funciona",
+        nav_configuration: "Configuración",
+        nav_supported_phones: "Teléfonos Soportados",
+        nav_contact: "Contacto",
+        call_recording_system: "Sistema de Grabación de Llamadas",
+        hero_desc: "Solución profesional de grabación de llamadas utilizando la función Built-in Bridge (BIB) de los teléfonos IP Cisco para entornos de comunicación empresarial. CiscoBIB proporciona grabación de llamadas fiable para sistemas CUCM.",
+        contact_us: "Contáctenos",
+        learn_more: "Saber Más",
+        supported_phones: "Teléfonos Soportados",
+        system_features: "Características del Sistema Cisco BIB",
+        features_desc: "Solución completa de grabación de llamadas para teléfonos IP Cisco, satisfaciendo las necesidades de grabación de comunicación empresarial con la tecnología CiscoBIB",
+        bib_tech: "Soporte de Tecnología BIB",
+        bib_tech_desc: "Aproveche la función Built-in Bridge (BIB) de los teléfonos IP Cisco para grabación de alta calidad sin hardware adicional.",
+        enterprise_rel: "Fiabilidad Empresarial",
+        enterprise_rel_desc: "Diseñado para entornos de comunicación empresarial con alta disponibilidad y seguridad de datos para cumplir con estrictos requisitos de cumplimiento.",
+        easy_config: "Configuración Fácil",
+        easy_config_desc: "Interfaz de configuración intuitiva para implementación y gestión fáciles del sistema, reduciendo la carga de trabajo del equipo de TI.",
+        smart_search: "Búsqueda Inteligente",
+        smart_search_desc: "Funcionalidad de búsqueda avanzada para localizar rápidamente archivos de grabación por número, tiempo, palabras clave y más.",
+        complete_rec: "Grabación Completa",
+        complete_rec_desc: "Grabe ambos lados de la conversación para garantizar la retención completa del contenido de la llamada, soportando la grabación de llamadas internas y externas.",
+        detailed_report: "Informes Detallados",
+        detailed_report_desc: "Estadísticas de grabación completas e informes de análisis para ayudar a las empresas a comprender los patrones de comunicación y optimizar procesos.",
+        how_it_works: "Cómo Funciona Cisco BIB",
+        how_it_works_desc: "Comprenda cómo el sistema de grabación Cisco BIB utiliza la tecnología Built-in Bridge para la grabación de llamadas de alta calidad",
+        bib_tech_title: "Tecnología de Grabación BIB",
+        bib_tech_desc1: "La mayoría de los teléfonos IP Cisco admiten la funcionalidad BIB. Cuando una llamada está activa, el teléfono envía su tráfico de entrada y salida a la pasarela de voz, luego a los teléfonos PSTN externos (grabación de llamadas internas/externas) o a usuarios internos, mientras copia el tráfico de entrada y salida al servidor de grabación para la grabación de llamadas.",
+        bib_tech_desc2: "El software de grabación reside en un servidor interconectado con la red de teléfonos IP y la red CUCM, capaz de recibir el tráfico enviado por los teléfonos IP para la grabación.",
+        high_quality: "Grabación de Alta Calidad",
+        high_quality_desc: "Preserve la calidad original de la llamada, clara y distinguible",
+        real_time: "Monitoreo en Tiempo Real",
+        real_time_desc: "Soporte de monitoreo y escucha de llamadas en tiempo real",
+        multi_format: "Soporte Multi-formato",
+        multi_format_desc: "Soporte de múltiples formatos de audio para almacenamiento y exportación",
+        secure_storage: "Almacenamiento Seguro",
+        secure_storage_desc: "Almacenamiento cifrado para evitar el acceso no autorizado",
+        ip_phone: "Teléfono IP",
+        ip_phone_desc: "El teléfono IP Cisco duplica el flujo de audio de la llamada a través de la función BIB",
+        cucm_desc: "Cisco Unified Communications Manager gestiona la configuración del teléfono",
+        rec_server: "Servidor de Grabación",
+        rec_server_desc: "Reciba el flujo de audio y almacene archivos de grabación de alta calidad",
+        config_guide: "Guía de Configuración",
+        config_guide_desc: "Configuración completa del sistema de grabación Cisco BIB en unos pocos pasos simples",
+        config_steps: "Pasos de Configuración de Cisco BIB",
+        config_step1: "1. Configuración de la Interfaz del Teléfono",
+        config_step1_desc: "En la interfaz de configuración del teléfono, seleccione \"On\" para \"Built In Bridge\";",
+        config_step2: "2. Configuración de la Interfaz DN",
+        dn_config: "En la configuración del Número de Directorio:",
+        dn_config1: "En la Opción de Grabación, seleccione \"Automatic Call Recording Enabled\";",
+        dn_config2: "En \"Recording Profile\", seleccione \"Recording_Profile\";",
+        dn_config3: "En el menú desplegable \"Recording Media Source\", seleccione \"Phone Preferred\".",
+        config_screenshots: "Capturas de Pantalla de Configuración",
+        phone_config: "Interfaz de Configuración del Teléfono",
+        dn_config_interface: "Interfaz de Configuración DN",
+        video_tutorial: "Tutorial en Video",
+        config_video: "Video de Guía de Configuración",
+        config_video_desc: "Vea nuestro tutorial en video detallado para aprender a configurar rápidamente el sistema de grabación Cisco BIB, incluida la instalación del sistema, configuración del teléfono y gestión de grabaciones.",
+        video_length: "Duración del Video",
+        video_length_val: "15 minutos",
+        updated_date: "Fecha de Actualización",
+        content_cover: "Cobertura de Contenido",
+        content_cover_desc: "Desde la instalación del sistema hasta la configuración avanzada",
+        supported_phones_title: "Teléfonos Soportados",
+        supported_phones_desc: "Consulte la lista completa de teléfonos IP Cisco soportados para el sistema de grabación Cisco BIB",
+        support_matrix: "Matriz de Soporte de Teléfonos IP Cisco",
+        search_placeholder: "Buscar modelo de teléfono",
+        all_models: "Todos los Modelos",
+        phone_series: "Serie de Teléfonos",
+        model: "Modelo",
+        bib_support: "Soporte BIB",
+        cucm_version: "Versión CUCM",
+        status: "Estado",
+        supported: "Soportado",
+        recommended: "Recomendado",
+        standard: "Estándar",
+        limited_support: "Soporte Limitado",
+        legacy_model: "Modelo Antiguo",
+        view_full_matrix: "Ver Matriz Completa",
+        validated_models: "Modelos Validados",
+        validated_desc: "Hemos validado la funcionalidad de grabación BIB en más de 200 modelos de teléfonos IP Cisco para garantizar la estabilidad y confiabilidad del sistema.",
+        series_8800: "Serie 8800 (Todos los modelos)",
+        series_7800: "Serie 7800 (Todos los modelos)",
+        series_6800: "Serie 6800 (Todos los modelos)",
+        series_3900: "Serie 3900 Seleccionada",
+        compat_notes: "Notas de Compatibilidad",
+        compat_desc: "Consideraciones importantes para la compatibilidad del sistema de grabación Cisco BIB con diferentes modelos de teléfonos y versiones de CUCM.",
+        compat1: "Requiere CUCM 10.5+ para funcionalidad completa",
+        compat2: "Versión de firmware 11.XX+ recomendada",
+        compat3: "Se requiere acceso de red al servidor de grabación",
+        compat4: "La función BIB debe estar habilitada en el teléfono",
+        need_assistance: "¿Necesita Ayuda?",
+        assistance_desc: "¿No está seguro si su teléfono IP Cisco admite la grabación BIB? Contacte a nuestro equipo técnico para soporte personalizado.",
+        github_support: "Problemas y Discusiones de GitHub",
+        tech_doc: "Documentación Técnica",
+        live_demo: "Demostración en Vivo Disponible",
+        contact_us_title: "Contáctenos",
+        contact_desc: "¿Tiene preguntas sobre el sistema de grabación Cisco BIB? Póngase en contacto con nuestro equipo técnico para obtener soporte",
+        get_in_touch: "Póngase en Contacto",
+        email: "Correo Electrónico",
+        response_time: "Normalmente respondemos en 24 horas",
+        github_desc: "Código fuente, problemas y documentación",
+        documentation: "Documentación",
+        tech_guide: "Guía Técnica Completa",
+        docs_desc: "Manuales de instalación y configuración",
+        send_message: "Enviar Mensaje",
+        name: "Nombre",
+        name_placeholder: "Su nombre",
+        email_label: "Correo Electrónico",
+        email_placeholder: "Su dirección de correo electrónico",
+        subject: "Asunto",
+        general_inquiry: "Consulta General",
+        tech_support: "Soporte Técnico",
+        config_help: "Ayuda de Configuración",
+        compat_question: "Pregunta de Compatibilidad",
+        other: "Otro",
+        message: "Mensaje",
+        message_placeholder: "Su mensaje...",
+        send_message_btn: "Enviar Mensaje",
+        footer_desc: "Solución profesional de grabación de llamadas para teléfonos IP Cisco utilizando tecnología BIB.",
+        quick_links: "Enlaces Rápidos",
+        resources: "Recursos",
+        video_tutorials: "Tutoriales en Video",
+        faq: "Preguntas Frecuentes",
+        contact: "Contacto",
+        support_247: "Soporte Técnico 24/7"
+      },
+      ru: {
+        recording_system: "Система записи",
+        nav_features: "Функции",
+        nav_how_it_works: "Как это работает",
+        nav_configuration: "Конфигурация",
+        nav_supported_phones: "Поддерживаемые телефоны",
+        nav_contact: "Контакт",
+        call_recording_system: "Система записи звонков",
+        hero_desc: "Профессиональное решение для записи звонков с использованием функции Built-in Bridge (BIB) IP-телефонов Cisco для корпоративных сред связи. CiscoBIB обеспечивает надежную запись звонков для систем CUCM.",
+        contact_us: "Связаться с нами",
+        learn_more: "Узнать больше",
+        supported_phones: "Поддерживаемые телефоны",
+        system_features: "Функции системы Cisco BIB",
+        features_desc: "Комплексное решение для записи звонков для IP-телефонов Cisco, удовлетворяющее потребностям корпоративной записи связи с технологией CiscoBIB",
+        bib_tech: "Поддержка технологии BIB",
+        bib_tech_desc: "Используйте функцию Built-in Bridge (BIB) IP-телефонов Cisco для высококачественной записи без дополнительного оборудования.",
+        enterprise_rel: "Корпоративная надежность",
+        enterprise_rel_desc: "Разработано для корпоративных сред связи с высокой доступностью и безопасностью данных для соответствия строгим требованиям соответствия.",
+        easy_config: "Простая конфигурация",
+        easy_config_desc: "Интуитивно понятный интерфейс конфигурации для простого развертывания и управления системой, снижая нагрузку на ИТ-команду.",
+        smart_search: "Умный поиск",
+        smart_search_desc: "Расширенная функция поиска для быстрого поиска файлов записи по номеру, времени, ключевым словам и многому другому.",
+        complete_rec: "Полная запись",
+        complete_rec_desc: "Запишите обе стороны разговора, чтобы обеспечить полное сохранение содержимого звонка, поддерживая запись внутренних и внешних звонков.",
+        detailed_report: "Детальные отчеты",
+        detailed_report_desc: "Комплексная статистика записи и отчеты анализа, помогающие бизнесу понимать модели коммуникации и оптимизировать процессы.",
+        how_it_works: "Как работает Cisco BIB",
+        how_it_works_desc: "Поймите, как система записи Cisco BIB использует технологию Built-in Bridge для высококачественной записи звонков",
+        bib_tech_title: "Технология записи BIB",
+        bib_tech_desc1: "Большинство IP-телефонов Cisco поддерживают функциональность BIB. Когда звонок активен, телефон отправляет входящий и исходящий трафик на голосовой шлюз, затем на внешние телефоны PSTN (запись внутренних/внешних звонков) или внутренним пользователям, копируя входящий и исходящий трафик на сервер записи для записи звонка.",
+        bib_tech_desc2: "Программное обеспечение для записи находится на сервере, соединенном с сетью IP-телефонов и сетью CUCM, способном принимать трафик, отправленный IP-телефонами для записи.",
+        high_quality: "Высококачественная запись",
+        high_quality_desc: "Сохраните исходное качество звонка, четкое и различимое",
+        real_time: "Мониторинг в реальном времени",
+        real_time_desc: "Поддержка мониторинга и прослушивания звонков в реальном времени",
+        multi_format: "Мультиформатная поддержка",
+        multi_format_desc: "Поддержка нескольких аудиоформатов для хранения и экспорта",
+        secure_storage: "Безопасное хранение",
+        secure_storage_desc: "Зашифрованное хранение для предотвращения несанкционированного доступа",
+        ip_phone: "IP-телефон",
+        ip_phone_desc: "IP-телефон Cisco дублирует аудиопоток звонка через функцию BIB",
+        cucm_desc: "Cisco Unified Communications Manager управляет конфигурацией телефона",
+        rec_server: "Сервер записи",
+        rec_server_desc: "Получайте аудиопоток и храните высококачественные файлы записи",
+        config_guide: "Руководство по конфигурации",
+        config_guide_desc: "Полная конфигурация системы записи Cisco BIB за несколько простых шагов",
+        config_steps: "Шаги конфигурации Cisco BIB",
+        config_step1: "1. Конфигурация интерфейса телефона",
+        config_step1_desc: "В интерфейсе конфигурации телефона выберите \"On\" для \"Built In Bridge\";",
+        config_step2: "2. Конфигурация интерфейса DN",
+        dn_config: "В конфигурации номера директории:",
+        dn_config1: "В опции записи выберите \"Automatic Call Recording Enabled\";",
+        dn_config2: "В \"Recording Profile\" выберите \"Recording_Profile\";",
+        dn_config3: "В выпадающем списке \"Recording Media Source\" выберите \"Phone Preferred\".",
+        config_screenshots: "Скриншоты конфигурации",
+        phone_config: "Интерфейс конфигурации телефона",
+        dn_config_interface: "Интерфейс конфигурации DN",
+        video_tutorial: "Видеоурок",
+        config_video: "Видео руководства по конфигурации",
+        config_video_desc: "Посмотрите наш подробный видеоурок, чтобы узнать, как быстро настроить систему записи Cisco BIB, включая установку системы, конфигурацию телефона и управление записями.",
+        video_length: "Длина видео",
+        video_length_val: "15 минут",
+        updated_date: "Дата обновления",
+        content_cover: "Охват контента",
+        content_cover_desc: "От установки системы до расширенной конфигурации",
+        supported_phones_title: "Поддерживаемые телефоны",
+        supported_phones_desc: "Ознакомьтесь с полным списком поддерживаемых IP-телефонов Cisco для системы записи Cisco BIB",
+        support_matrix: "Матрица поддержки IP-телефонов Cisco",
+        search_placeholder: "Поиск модели телефона",
+        all_models: "Все модели",
+        phone_series: "Серия телефонов",
+        model: "Модель",
+        bib_support: "Поддержка BIB",
+        cucm_version: "Версия CUCM",
+        status: "Статус",
+        supported: "Поддерживается",
+        recommended: "Рекомендуется",
+        standard: "Стандарт",
+        limited_support: "Ограниченная поддержка",
+        legacy_model: "Старая модель",
+        view_full_matrix: "Просмотреть полную матрицу",
+        validated_models: "Проверенные модели",
+        validated_desc: "Мы проверили функциональность записи BIB на более чем 200 моделях IP-телефонов Cisco, чтобы обеспечить стабильность и надежность системы.",
+        series_8800: "Серия 8800 (Все модели)",
+        series_7800: "Серия 7800 (Все модели)",
+        series_6800: "Серия 6800 (Все модели)",
+        series_3900: "Выбранная серия 3900",
+        compat_notes: "Примечания к совместимости",
+        compat_desc: "Важные соображения по совместимости системы записи Cisco BIB с различными моделями телефонов и версиями CUCM.",
+        compat1: "Требуется CUCM 10.5+ для полной функциональности",
+        compat2: "Рекомендуется версия прошивки 11.XX+",
+        compat3: "Требуется сетевой доступ к серверу записи",
+        compat4: "Функция BIB должна быть включена на телефоне",
+        need_assistance: "Нужна помощь?",
+        assistance_desc: "Не уверены, поддерживает ли ваш IP-телефон Cisco запись BIB? Свяжитесь с нашей технической командой для персональной поддержки.",
+        github_support: "Проблемы и обсуждения GitHub",
+        tech_doc: "Техническая документация",
+        live_demo: "Доступна живая демонстрация",
+        contact_us_title: "Связаться с нами",
+        contact_desc: "Есть вопросы о системе записи Cisco BIB? Свяжитесь с нашей технической командой для поддержки",
+        get_in_touch: "Связаться с нами",
+        email: "Электронная почта",
+        response_time: "Обычно мы отвечаем в течение 24 часов",
+        github_desc: "Исходный код, проблемы и документация",
+        documentation: "Документация",
+        tech_guide: "Полное техническое руководство",
+        docs_desc: "Руководства по установке и конфигурации",
+        send_message: "Отправить сообщение",
+        name: "Имя",
+        name_placeholder: "Ваше имя",
+        email_label: "Электронная почта",
+        email_placeholder: "Ваш адрес электронной почты",
+        subject: "Тема",
+        general_inquiry: "Общий запрос",
+        tech_support: "Техническая поддержка",
+        config_help: "Помощь с конфигурацией",
+        compat_question: "Вопрос о совместимости",
+        other: "Другое",
+        message: "Сообщение",
+        message_placeholder: "Ваше сообщение...",
+        send_message_btn: "Отправить сообщение",
+        footer_desc: "Профессиональное решение для записи звонков для IP-телефонов Cisco с использованием технологии BIB.",
+        quick_links: "Быстрые ссылки",
+        resources: "Ресурсы",
+        video_tutorials: "Видеоуроки",
+        faq: "Часто задаваемые вопросы",
+        contact: "Контакт",
+        support_247: "Круглосуточная техническая поддержка"
+      },
+      pt: {
+        recording_system: "Sistema de Gravação",
+        nav_features: "Funcionalidades",
+        nav_how_it_works: "Como Funciona",
+        nav_configuration: "Configuração",
+        nav_supported_phones: "Telefones Suportados",
+        nav_contact: "Contato",
+        call_recording_system: "Sistema de Gravação de Chamadas",
+        hero_desc: "Solução profissional de gravação de chamadas utilizando o recurso Built-in Bridge (BIB) dos telefones IP Cisco para ambientes de comunicação empresarial. O CiscoBIB fornece gravação de chamadas confiável para sistemas CUCM.",
+        contact_us: "Fale Conosco",
+        learn_more: "Saiba Mais",
+        supported_phones: "Telefones Suportados",
+        system_features: "Funcionalidades do Sistema Cisco BIB",
+        features_desc: "Solução completa de gravação de chamadas para telefones IP Cisco, atendendo às necessidades de gravação de comunicação empresarial com a tecnologia CiscoBIB",
+        bib_tech: "Suporte à Tecnologia BIB",
+        bib_tech_desc: "Aproveite o recurso Built-in Bridge (BIB) dos telefones IP Cisco para gravação de alta qualidade sem hardware adicional.",
+        enterprise_rel: "Confiabilidade Empresarial",
+        enterprise_rel_desc: "Projetado para ambientes de comunicação empresarial com alta disponibilidade e segurança de dados para atender a requisitos rigorosos de conformidade.",
+        easy_config: "Configuração Fácil",
+        easy_config_desc: "Interface de configuração intuitiva para implantação e gerenciamento fáceis do sistema, reduzindo a carga de trabalho da equipe de TI.",
+        smart_search: "Pesquisa Inteligente",
+        smart_search_desc: "Funcionalidade de pesquisa avançada para localizar rapidamente arquivos de gravação por número, hora, palavras-chave e muito mais.",
+        complete_rec: "Gravação Completa",
+        complete_rec_desc: "Grave ambos os lados da conversa para garantir a retenção completa do conteúdo da chamada, suportando gravação de chamadas internas e externas.",
+        detailed_report: "Relatórios Detalhados",
+        detailed_report_desc: "Estatísticas de gravação abrangentes e relatórios de análise para ajudar as empresas a entender os padrões de comunicação e otimizar processos.",
+        how_it_works: "Como o Cisco BIB Funciona",
+        how_it_works_desc: "Entenda como o sistema de gravação Cisco BIB usa a tecnologia Built-in Bridge para gravação de chamadas de alta qualidade",
+        bib_tech_title: "Tecnologia de Gravação BIB",
+        bib_tech_desc1: "A maioria dos telefones IP Cisco suporta a funcionalidade BIB. Quando uma chamada está ativa, o telefone envia seu tráfego de entrada e saída para o gateway de voz, depois para telefones PSTN externos (gravação de chamadas internas/externas) ou usuários internos, enquanto copia o tráfego de entrada e saída para o servidor de gravação para gravação de chamadas.",
+        bib_tech_desc2: "O software de gravação reside em um servidor interconectado com a rede de telefones IP e a rede CUCM, capaz de receber o tráfego enviado pelos telefones IP para gravação.",
+        high_quality: "Gravação de Alta Qualidade",
+        high_quality_desc: "Preserve a qualidade original da chamada, clara e distinguível",
+        real_time: "Monitoramento em Tempo Real",
+        real_time_desc: "Suporte a monitoramento e escuta de chamadas em tempo real",
+        multi_format: "Suporte a Multi-formatos",
+        multi_format_desc: "Suporte a vários formatos de áudio para armazenamento e exportação",
+        secure_storage: "Armazenamento Seguro",
+        secure_storage_desc: "Armazenamento criptografado para impedir acesso não autorizado",
+        ip_phone: "Telefone IP",
+        ip_phone_desc: "O telefone IP Cisco duplica o fluxo de áudio da chamada através do recurso BIB",
+        cucm_desc: "O Cisco Unified Communications Manager gerencia a configuração do telefone",
+        rec_server: "Servidor de Gravação",
+        rec_server_desc: "Receba o fluxo de áudio e armazene arquivos de gravação de alta qualidade",
+        config_guide: "Guia de Configuração",
+        config_guide_desc: "Configuração completa do sistema de gravação Cisco BIB em alguns passos simples",
+        config_steps: "Passos de Configuração do Cisco BIB",
+        config_step1: "1. Configuração da Interface do Telefone",
+        config_step1_desc: "Na interface de configuração do Telefone, selecione \"On\" para \"Built In Bridge\";",
+        config_step2: "2. Configuração da Interface DN",
+        dn_config: "Na configuração do Número de Diretório:",
+        dn_config1: "Na Opção de Gravação, selecione \"Automatic Call Recording Enabled\";",
+        dn_config2: "Em \"Recording Profile\", selecione \"Recording_Profile\";",
+        dn_config3: "No menu suspenso \"Recording Media Source\", selecione \"Phone Preferred\".",
+        config_screenshots: "Capturas de Tela de Configuração",
+        phone_config: "Interface de Configuração do Telefone",
+        dn_config_interface: "Interface de Configuração DN",
+        video_tutorial: "Tutorial em Vídeo",
+        config_video: "Vídeo do Guia de Configuração",
+        config_video_desc: "Assista ao nosso tutorial em vídeo detalhado para aprender a configurar rapidamente o sistema de gravação Cisco BIB, incluindo instalação do sistema, configuração do telefone e gerenciamento de gravações.",
+        video_length: "Duração do Vídeo",
+        video_length_val: "15 minutos",
+        updated_date: "Data de Atualização",
+        content_cover: "Cobertura de Conteúdo",
+        content_cover_desc: "Da instalação do sistema à configuração avançada",
+        supported_phones_title: "Telefones Suportados",
+        supported_phones_desc: "Verifique a lista completa de telefones IP Cisco suportados para o sistema de gravação Cisco BIB",
+        support_matrix: "Matriz de Suporte de Telefones IP Cisco",
+        search_placeholder: "Pesquisar modelo de telefone",
+        all_models: "Todos os Modelos",
+        phone_series: "Série de Telefones",
+        model: "Modelo",
+        bib_support: "Suporte BIB",
+        cucm_version: "Versão CUCM",
+        status: "Status",
+        supported: "Suportado",
+        recommended: "Recomendado",
+        standard: "Padrão",
+        limited_support: "Suporte Limitado",
+        legacy_model: "Modelo Legado",
+        view_full_matrix: "Ver Matriz Completa",
+        validated_models: "Modelos Validados",
+        validated_desc: "Validamos a funcionalidade de gravação BIB em mais de 200 modelos de telefones IP Cisco para garantir a estabilidade e confiabilidade do sistema.",
+        series_8800: "Série 8800 (Todos os modelos)",
+        series_7800: "Série 7800 (Todos os modelos)",
+        series_6800: "Série 6800 (Todos os modelos)",
+        series_3900: "Série 3900 Selecionada",
+        compat_notes: "Notas de Compatibilidade",
+        compat_desc: "Considerações importantes para a compatibilidade do sistema de gravação Cisco BIB com diferentes modelos de telefones e versões CUCM.",
+        compat1: "Requer CUCM 10.5+ para funcionalidade completa",
+        compat2: "Versão de firmware 11.XX+ recomendada",
+        compat3: "Acesso à rede ao servidor de gravação necessário",
+        compat4: "O recurso BIB deve ser ativado no telefone",
+        need_assistance: "Precisa de Ajuda?",
+        assistance_desc: "Não tem certeza se o seu telefone IP Cisco suporta gravação BIB? Contate nossa equipe técnica para suporte personalizado.",
+        github_support: "Issues e Discussões do GitHub",
+        tech_doc: "Documentação Técnica",
+        live_demo: "Demonstração ao Vivo Disponível",
+        contact_us_title: "Fale Conosco",
+        contact_desc: "Tem perguntas sobre o sistema de gravação Cisco BIB? Entre em contato com nossa equipe técnica para obter suporte",
+        get_in_touch: "Entre em Contato",
+        email: "E-mail",
+        response_time: "Normalmente respondemos em 24 horas",
+        github_desc: "Código fonte, issues e documentação",
+        documentation: "Documentação",
+        tech_guide: "Guia Técnico Completo",
+        docs_desc: "Manuais de instalação e configuração",
+        send_message: "Enviar Mensagem",
+        name: "Nome",
+        name_placeholder: "Seu nome",
+        email_label: "E-mail",
+        email_placeholder: "Seu endereço de e-mail",
+        subject: "Assunto",
+        general_inquiry: "Consulta Geral",
+        tech_support: "Suporte Técnico",
+        config_help: "Ajuda com Configuração",
+        compat_question: "Pergunta de Compatibilidade",
+        other: "Outro",
+        message: "Mensagem",
+        message_placeholder: "Sua mensagem...",
+        send_message_btn: "Enviar Mensagem",
+        footer_desc: "Solução profissional de gravação de chamadas para telefones IP Cisco usando tecnologia BIB.",
+        quick_links: "Links Rápidos",
+        resources: "Recursos",
+        video_tutorials: "Tutoriais em Vídeo",
+        faq: "FAQ",
+        contact: "Contato",
+        support_247: "Suporte Técnico 24h"
+      },
+      zh: {
+        recording_system: "录音系统",
+        nav_features: "功能特性",
+        nav_how_it_works: "工作原理",
+        nav_configuration: "配置指南",
+        nav_supported_phones: "支持设备",
+        nav_contact: "联系我们",
+        call_recording_system: "呼叫录音系统",
+        hero_desc: "利用思科IP电话内置桥接（BIB）功能的专业呼叫录音解决方案，适用于企业通信环境。CiscoBIB为CUCM系统提供可靠的呼叫录音服务。",
+        contact_us: "联系我们",
+        learn_more: "了解更多",
+        supported_phones: "支持设备",
+        system_features: "Cisco BIB系统功能",
+        features_desc: "适用于思科IP电话的全面呼叫录音解决方案，利用CiscoBIB技术满足企业通信录音需求",
+        bib_tech: "BIB技术支持",
+        bib_tech_desc: "利用思科IP电话内置桥接（BIB）功能实现高品质录音，无需额外硬件。",
+        enterprise_rel: "企业级可靠性",
+        enterprise_rel_desc: "专为企业通信环境设计，具备高可用性和数据安全性，满足严格的合规要求。",
+        easy_config: "简易配置",
+        easy_config_desc: "直观的配置界面，轻松完成系统部署和管理，减轻IT团队工作负担。",
+        smart_search: "智能搜索",
+        smart_search_desc: "高级搜索功能，可通过号码、时间、关键词等快速定位录音文件。",
+        complete_rec: "完整录音",
+        complete_rec_desc: "录制通话双方声音，确保通话内容完整保留，支持内部和外部通话录音。",
+        detailed_report: "详细报表",
+        detailed_report_desc: "全面的录音统计和分析报表，帮助企业了解通信模式并优化流程。",
+        how_it_works: "Cisco BIB工作原理",
+        how_it_works_desc: "了解Cisco BIB录音系统如何使用内置桥接技术实现高品质呼叫录音",
+        bib_tech_title: "BIB录音技术",
+        bib_tech_desc1: "大多数思科IP电话都支持BIB功能。当通话激活时，电话将其输入和输出流量发送到语音网关，再到外部PSTN电话（内部/外部通话录音）或内部用户，同时将输入和输出流量复制到录音服务器进行通话录音。",
+        bib_tech_desc2: "录音软件驻留在与IP电话网络和CUCM网络互连的服务器上，能够接收IP电话发送的流量进行录音。",
+        high_quality: "高品质录音",
+        high_quality_desc: "保留原始通话质量，清晰可辨",
+        real_time: "实时监控",
+        real_time_desc: "支持实时通话监控和监听",
+        multi_format: "多格式支持",
+        multi_format_desc: "支持多种音频格式存储和导出",
+        secure_storage: "安全存储",
+        secure_storage_desc: "加密存储，防止未授权访问",
+        ip_phone: "IP电话",
+        ip_phone_desc: "思科IP电话通过BIB功能复制通话音频流",
+        cucm_desc: "思科统一通信管理器管理电话配置",
+        rec_server: "录音服务器",
+        rec_server_desc: "接收音频流并存储高品质录音文件",
+        config_guide: "配置指南",
+        config_guide_desc: "通过几个简单步骤完成Cisco BIB录音系统配置",
+        config_steps: "Cisco BIB配置步骤",
+        config_step1: "1. 电话接口配置",
+        config_step1_desc: "在电话配置界面中，将\"内置桥接\"选择为\"开启\";",
+        config_step2: "2. 目录号码接口配置",
+        dn_config: "在目录号码配置中：",
+        dn_config1: "在录音选项中，选择\"自动呼叫录音启用\";",
+        dn_config2: "在\"录音配置文件\"中，选择\"Recording_Profile\";",
+        dn_config3: "在\"录音媒体源\"下拉菜单中，选择\"电话首选\"。",
+        config_screenshots: "配置截图",
+        phone_config: "电话配置界面",
+        dn_config_interface: "目录号码配置界面",
+        video_tutorial: "视频教程",
+        config_video: "配置指南视频",
+        config_video_desc: "观看我们的详细视频教程，学习如何快速配置Cisco BIB录音系统，包括系统安装、电话配置和录音管理。",
+        video_length: "视频时长",
+        video_length_val: "15分钟",
+        updated_date: "更新日期",
+        content_cover: "内容涵盖",
+        content_cover_desc: "从系统安装到高级配置",
+        supported_phones_title: "支持设备",
+        supported_phones_desc: "查看Cisco BIB录音系统支持的完整思科IP电话列表",
+        support_matrix: "思科IP电话支持矩阵",
+        search_placeholder: "搜索电话型号",
+        all_models: "所有型号",
+        phone_series: "电话系列",
+        model: "型号",
+        bib_support: "BIB支持",
+        cucm_version: "CUCM版本",
+        status: "状态",
+        supported: "支持",
+        recommended: "推荐",
+        standard: "标准",
+        limited_support: "有限支持",
+        legacy_model: "旧型号",
+        view_full_matrix: "查看完整支持矩阵",
+        validated_models: "已验证型号",
+        validated_desc: "我们已在200多种思科IP电话型号上验证了BIB录音功能，确保系统稳定性和可靠性。",
+        series_8800: "8800系列（所有型号）",
+        series_7800: "7800系列（所有型号）",
+        series_6800: "6800系列（所有型号）",
+        series_3900: "精选3900系列",
+        compat_notes: "兼容性说明",
+        compat_desc: "Cisco BIB录音系统与不同电话型号和CUCM版本兼容性的重要注意事项。",
+        compat1: "需要CUCM 10.5+才能实现全部功能",
+        compat2: "建议固件版本11.XX+",
+        compat3: "需要能够访问录音服务器的网络",
+        compat4: "电话上必须启用BIB功能",
+        need_assistance: "需要帮助？",
+        assistance_desc: "不确定您的思科IP电话是否支持BIB录音？联系我们的技术团队获取个性化支持。",
+        github_support: "GitHub问题与讨论",
+        tech_doc: "技术文档",
+        live_demo: "提供现场演示",
+        contact_us_title: "联系我们",
+        contact_desc: "有关Cisco BIB录音系统的问题？联系我们的技术团队获取支持",
+        get_in_touch: "联系方式",
+        email: "电子邮箱",
+        response_time: "我们通常在24小时内回复",
+        github_desc: "源代码、问题和文档",
+        documentation: "文档",
+        tech_guide: "完整技术指南",
+        docs_desc: "安装和配置手册",
+        send_message: "发送消息",
+        name: "姓名",
+        name_placeholder: "您的姓名",
+        email_label: "电子邮箱",
+        email_placeholder: "您的邮箱地址",
+        subject: "主题",
+        general_inquiry: "一般咨询",
+        tech_support: "技术支持",
+        config_help: "配置帮助",
+        compat_question: "兼容性问题",
+        other: "其他",
+        message: "消息",
+        message_placeholder: "您的消息...",
+        send_message_btn: "发送消息",
+        footer_desc: "基于BIB技术的思科IP电话专业呼叫录音解决方案。",
+        quick_links: "快速链接",
+        resources: "资源",
+        video_tutorials: "视频教程",
+        faq: "常见问题",
+        contact: "联系方式",
+        support_247: "24/7技术支持"
+      }
+    };
+
+    // 导航栏滚动效果
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('glass-effect');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.querySelector('div').classList.add('glass-effect');
+      }
+    });
+    
+    // 移动端菜单切换
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // 关闭移动端菜单
+          document.getElementById('mobile-menu').classList.add('hidden');
+        }
+      });
+    });
+    
+    // 完整多语言切换功能
+    function changeLanguage(lang) {
+      const translation = translations[lang];
+      if (!translation) return;
+      
+      // 更新所有带data-i18n属性的元素文本
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translation[key]) {
+          el.textContent = translation[key];
+        }
+      });
+      
+      // 更新HTML语言属性
+      document.documentElement.lang = lang;
+      
+      // 保存语言选择到本地存储
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    // 初始化语言事件监听
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // 移除所有语言按钮的激活状态
+        document.querySelectorAll('.lang-btn').forEach(b => {
+          b.classList.remove('bg-primary', 'text-white');
+          b.classList.add('text-gray-700', 'hover:bg-gray-100');
+        });
+        
+        // 设置当前按钮为激活状态
+        this.classList.remove('text-gray-700', 'hover:bg-gray-100');
+        this.classList.add('bg-primary', 'text-white');
+        
+        // 获取并应用选中的语言
+        const lang = this.getAttribute('data-lang');
+        changeLanguage(lang);
+      });
+    });
+
+    // 页面加载时恢复上次选择的语言
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+      changeLanguage(savedLang);
+      
+      // 激活对应的语言按钮
+      document.querySelectorAll(`.lang-btn[data-lang="${savedLang}"]`).forEach(btn => {
+        btn.classList.remove('text-gray-700', 'hover:bg-gray-100');
+        btn.classList.add('bg-primary', 'text-white');
+      });
+    });
+  </script>
+</body>
+</html>
